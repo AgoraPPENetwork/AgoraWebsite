@@ -349,6 +349,22 @@ header{
     width: 80%;
 }  
 
+.content {
+  position: relative;
+  padding: 40px 20px;
+  background: #ecf0f1;
+  display: flex;
+  flex-direction: column; /* Textblöcke untereinander */
+  gap: 30px; /* Abstand zwischen Textblöcken */
+}
+
+.text-block {
+  background: white;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
 .container{
     max-width: 2560px;
     margin-left: auto;
@@ -680,6 +696,15 @@ header{
     .container{
         min-width: 640px;
     }
+
+    .content {
+    padding: 20px;
+    gap: 20px;
+    }
+
+    .text-block {
+    padding: 20px;
+     }
     
     .socials2{
         width: 100%;
