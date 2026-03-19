@@ -5,7 +5,7 @@
     --left: 21%;  
 
 
-    --intro-size: 40px;
+    --intro-size: 25px;
     --projecttitle-size: 110px;
     --schriftzug-size: 135px;
     --intro_header: 60px;
@@ -17,6 +17,7 @@
     --black: #010101;
     --gray: #3f3f3f;
     --white: #cbcbcb;
+    --ultra-white: #f5f5f5; 
     /*--value: '0';*/
     --socials: none;
     --projektliste: none;
@@ -279,7 +280,7 @@ header{
     z-index: 96;
     user-select: none;
     font-family: LEMONMILK, Baskerville;
-    color: var(--white);
+    color: var(--ultra-white);
     line-height: 0%;
     font-size: var(--schriftzug-size);
     font-weight: 900;
@@ -302,7 +303,7 @@ header{
 .schriftzug_font_small::after{ 
     content: '';
     position: absolute;
-    background: var(--white);
+    background: var(--ultra-white);
     height: var(--height);
     left: 10%;
     width: 80%;
@@ -477,7 +478,7 @@ header{
     width: 50%;
     padding-left: 5%;
     margin-top: 20px;
-    margin-bottom: auto;
+    margin-bottom: 20px;
     z-index: 3;
     position: relative;
 }
@@ -573,6 +574,9 @@ header{
 }
 
 .picture{
+    background-image: url('/media/Wolkenkratzer.jpeg');
+    background-size: cover;
+    background-position: center;
     position: absolute;
     top: 0%;
     width: 100%;
@@ -619,7 +623,7 @@ header{
     }
 
     :root{
-        --intro-size: 70px;
+        --intro-size: 50px;
         --intro_header: 90px;
         --margin-schriftzug: 60px;
         --schriftzug_margin: 87;
@@ -637,7 +641,7 @@ header{
     }
 
     :root{
-        --intro-size: 40px;
+        --intro-size: 30px;
         --projecttitle-size: 110px;
         --schriftzug-size: 135px;
         --intro_header: 60px;
@@ -659,7 +663,7 @@ header{
     }
 
     :root{
-        --intro-size: 34px;
+        --intro-size: 27px;
         --projecttitle-size: 92px;
         --schriftzug-size: 130px;
         --intro_header: 50px;
@@ -680,7 +684,7 @@ header{
     }
 
     :root{
-        --intro-size: 27px;
+        --intro-size: 20px;
         --projecttitle-size: 74px;
         --schriftzug-size: 90px;
         --intro_header: 40px;
@@ -724,7 +728,7 @@ header{
     }
     
     :root{
-        --intro-size: 45px;
+        --intro-size: 25px;
         --projecttitle-size: 55px;
         --schriftzug-size: 80px;
         --intro_header: 55px;
@@ -756,7 +760,13 @@ header{
     }
 
     .picture{
+        background-image: url('/media/Wolkenkratzer.jpeg');
+        background-size: cover;
+        background-position: center;
         bottom: 10px;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
     }
 
     :root{
@@ -764,7 +774,7 @@ header{
         --nav_display: none;
         --projektliste: none;
         --nav_in_social: flex;
-        --intro-size: 40px;
+        --intro-size: 20px;
         --projecttitle-size: 46px;
         --schriftzug-size: 60px;
         --intro_header: 50px;
@@ -809,7 +819,7 @@ header{
             
     }
     :root{
-        --intro-size: 27px;
+        --intro-size: 20px;
         --projecttitle-size: 34px;
         --schriftzug-size: 40px;
         --intro_header: 42px;
