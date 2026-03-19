@@ -745,6 +745,13 @@ header{
         min-width: 475px;
     }
 
+    .socials a{
+        font-size: 25px;
+    }
+
+    .socials_div{
+        font-size: 25px;
+    }
     .socials2{
         width: 100%;
     }
