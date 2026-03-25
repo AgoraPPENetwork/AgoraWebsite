@@ -574,9 +574,9 @@ header{
 }
 
 .picture{
-    background-image: url('/media/Wolkenkratzer.jpeg');
+    background-image: url('/media/alternativeBackground.jpeg');
     background-size: cover;
-    background-position: center;
+    background-position: bottom;
     position: absolute;
     top: 0%;
     width: 100%;
@@ -767,9 +767,9 @@ header{
     }
 
     .picture{
-        background-image: url('/media/Wolkenkratzer.jpeg');
+        background-image: url('/media/alternativeBackground.jpeg');
         background-size: cover;
-        background-position: center;
+        background-position:bottom;
         bottom: 10px;
         width: 100%;
         height: 100vh;
