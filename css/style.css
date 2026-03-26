@@ -601,7 +601,7 @@ header{
 }
 
 .picture{
-    background-image: url('/media/BackgroundImagev3.jpg');
+    background-image: url('/media/BackgroundImagev4.jpg');
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -816,7 +816,7 @@ header{
     }
 
     .picture{
-        background-image: url('/media/alternativeBackground.jpeg');
+        background-image: url('/media/BackgroundImagev3.jpg');
         background-size: cover;
         background-position:bottom;
         bottom: 10px;
