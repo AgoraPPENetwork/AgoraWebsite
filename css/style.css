@@ -601,9 +601,9 @@ header{
 }
 
 .picture{
-    background-image: url('/media/alternativeBackground.jpeg');
+    background-image: url('/media/BackgroundImagev3.jpg');
     background-size: cover;
-    background-position: bottom;
+    background-position: center;
     position: absolute;
     top: 0%;
     width: 100%;
