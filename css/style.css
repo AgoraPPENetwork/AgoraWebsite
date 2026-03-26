@@ -213,6 +213,20 @@ header{
     transform: scaleX(1);
 }
 
+.logo{
+    margin-left: 15px;
+    margin-top: 2px;
+    width: 38px;
+    height: 38px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    padding: 7px;
+    outline: none;
+    cursor: pointer;
+    z-index: 99;
+}
+
 .socials_button{
     margin-left: 15px;
     margin-top: 7px;
