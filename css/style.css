@@ -355,15 +355,42 @@ header{
   padding: 40px 20px;
   background: #ecf0f1;
   display: flex;
+  align-items: center;
   flex-direction: column; /* Textblöcke untereinander */
   gap: 30px; /* Abstand zwischen Textblöcken */
 }
 
+.text_header {
+  font-family:  LEMONMILK, Baskerville;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
 .text-block {
   background: white;
+  font-size: 30px;
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  width: 80%;
+}
+
+.text {
+  display: flex;
+  flex-direction: row;
+}
+
+.text p {
+  width: 60%;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.text img {
+  width: 40%;
+  border-radius: 8px;
+  height: fit-content;
 }
 
 .container{
@@ -706,9 +733,31 @@ header{
     gap: 20px;
     }
 
+    .text_header {
+    font-size: 20px;
+    }
+
     .text-block {
     padding: 20px;
      }
+
+    .text {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    }
+
+    .text p {
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 8px;
+    }
+
+    .text img {
+    width: 100%;
+    border-radius: 8px;
+    height: fit-content;
+    }
     
     .socials2{
         width: 100%;
