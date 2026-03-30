@@ -396,16 +396,16 @@ header{
 }
 
 .text p {
-  width: 80%;
+  width: 75%;
   margin: 20px;
   border-radius: 8px;
 }
 
 .text img {
-  width: 20%;
-margin: 10px;
+  width: 25%;
+  margin: 10px;
   border-radius: 8px;
-  height: fit-content;
+  height: auto;
 }
 
 .container{
@@ -691,6 +691,14 @@ margin: 10px;
         --schriftzug_margin: 77;
         --SSF_initial_height: 5px;
     }
+
+    .text p {
+    width: 60%;
+    }
+
+    .text img {
+     width: 40%;
+    }
     
 }
 
@@ -712,6 +720,14 @@ margin: 10px;
         --margin-schriftzug: 34px;
         --schriftzug_margin: 70;
         --SSF_initial_height: 5px;
+    }
+
+        .text p {
+    width: 50%;
+    }
+
+    .text img {
+     width: 50%;
     }
 }
 
@@ -735,31 +751,18 @@ margin: 10px;
         --SSF_initial_height: 4px;
     }
 
-}
-
-/*md*/
-@media (max-width: 768px){
-    .container{
-        min-width: 640px;
-    }
-
-    .content {
-    padding: 20px;
-    gap: 20px;
-    }
-
-    .text_header {
-    font-size: 20px;
+        .text_header {
+    font-size: 25px;
     }
 
     .text-block {
-    padding: 20px;
+    padding: 25px;
      }
 
     .text {
     display: flex;
     flex-direction: column;
-    font-size: 15px;
+    font-size: 20px;
     }
 
     .text p {
@@ -772,6 +775,19 @@ margin: 10px;
     width: 100%;
     border-radius: 8px;
     height: fit-content;
+    }
+
+}
+
+/*md*/
+@media (max-width: 768px){
+    .container{
+        min-width: 640px;
+    }
+
+    .content {
+    padding: 20px;
+    gap: 20px;
     }
     
     .socials2{
@@ -800,6 +816,32 @@ margin: 10px;
         --schriftzug_margin: 60;
         --initial_project_width: 80;
         --SSF_initial_height: 4px;
+    }
+
+    .text_header {
+    font-size: 20px;
+    }
+
+    .text-block {
+    padding: 20px;
+     }
+
+    .text {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    }
+
+    .text p {
+    width: 100%;
+    margin: 10px;
+    border-radius: 8px;
+    }
+
+    .text img {
+    width: 100%;
+    border-radius: 8px;
+    height: fit-content;
     }
 }
 
