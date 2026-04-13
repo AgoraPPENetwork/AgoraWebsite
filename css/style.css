@@ -737,6 +737,12 @@ li {
   filter: grayscale(70%);
 }
 
+li a{
+    text-decoration: none;
+    font-family: LEMONMILK, entsans;
+    color: var(--black);
+}
+
 li:nth-child(odd) {
   background-image: url('/media/BackgroundImagev4.jpg');
   color: var(--black);
