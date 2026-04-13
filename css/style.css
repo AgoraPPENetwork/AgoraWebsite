@@ -37,6 +37,9 @@
     --download_button_height: 200px;
     --download_button_width: 500px;
     --download_button_font_size: 50px;
+
+    --text_header_font_size: 40px;
+    --veranstaltungen_header_font_size: 55px;
     
 }
 
@@ -380,7 +383,7 @@ header{
 
 .text_header {
   font-family:  LEMONMILK, Baskerville;
-  font-size: 30px;
+  font-size: var(--text_header_font_size);
   font-weight: bold;
   margin-bottom: 20px;
 }
@@ -660,7 +663,15 @@ header{
     color: var(--white);
     font-family: LEMONMILK, entsans;
     font-size: var(--intro-size);
-    margin: 20px;
+    border: 2px solid var(--white);
+    width: 80vw;
+    margin-bottom: 10px;
+    margin-left: 5vw;
+    padding: 5vw;
+}
+
+.mitgliederantrag h1{
+    font-size: var(--download_button_font_size);
 }
 
 .mitgliederantrag_download_button{
@@ -691,6 +702,17 @@ header{
     background-color: var(--white);
 }
 
+.veranstaltungen-container h2{
+    font-family: LEMONMILK, entsans;
+    font-size: var(--veranstaltungen_header_font_size);
+    padding: 10px;
+}
+
+.veranstaltung-order{
+        display: flex;
+        flex-direction: row;
+    }
+
 ul {
   width: 100vw;
   height: auto;
@@ -712,6 +734,12 @@ li {
   flex: 0 0 80%;
 
   scroll-snap-align: center;
+  filter: grayscale(70%);
+}
+
+li:nth-child(odd) {
+  background-image: url('/media/BackgroundImagev4.jpg');
+  color: var(--black);
 }
 
 li:nth-child(even) {
@@ -719,12 +747,15 @@ li:nth-child(even) {
   color: var(--white);
 }
 
+li:hover {
+  filter: grayscale(0%);
+}
 
 
 
 .calendar{
   box-sizing:border-box;
-  width:390px;
+  width: max-content;
   background-color: #fff;
   box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
   font-family: 'Roboto', sans-serif;
@@ -865,6 +896,7 @@ li:nth-child(even) {
         --download_button_height: 160px;
         --download_button_width: 400px;
         --download_button_font_size: 40px;
+        --veranstaltungen_header_font_size: 45px;
     }
 
     .text p {
@@ -895,6 +927,7 @@ li:nth-child(even) {
         --margin-schriftzug: 34px;
         --schriftzug_margin: 70;
         --SSF_initial_height: 5px;
+        --veranstaltungen_header_font_size: 35px;
     }
 
         .text p {
@@ -924,11 +957,10 @@ li:nth-child(even) {
         --margin-schriftzug: 27px;
         --schriftzug_margin: 63;
         --SSF_initial_height: 4px;
+        --text_header_font_size: 40px;
     }
 
-        .text_header {
-    font-size: 25px;
-    }
+    
 
     .text-block {
     padding: 25px;
@@ -938,6 +970,11 @@ li:nth-child(even) {
     display: flex;
     flex-direction: column;
     font-size: 20px;
+    }
+
+    .veranstaltung-order{
+        display: flex;
+        flex-direction: column;
     }
 
     .text p {
@@ -991,10 +1028,9 @@ li:nth-child(even) {
         --schriftzug_margin: 60;
         --initial_project_width: 80;
         --SSF_initial_height: 4px;
-    }
+        --text_header_font_size: 30px;
+        --veranstaltungen_header_font_size: 30px;
 
-    .text_header {
-    font-size: 20px;
     }
 
     .text-block {
@@ -1057,6 +1093,11 @@ li:nth-child(even) {
         overflow: hidden;
     }
 
+    .calendar{
+        width: 100%;
+        margin: 0;
+    }   
+
     :root{
         --black: #010101;
         --nav_display: none;
@@ -1073,6 +1114,7 @@ li:nth-child(even) {
         --download_button_height: 120px;
         --download_button_width: 300px;
         --download_button_font_size: 30px;
+        --text_header_font_size: 25px;
     }
 }
 
@@ -1118,7 +1160,7 @@ li:nth-child(even) {
         --schriftzug_margin: 50;
         --last_buffer_height: 100px;
         --SSF_initial_height: 2px;
-                --download_button_height: 80px;
+        --download_button_height: 80px;
         --download_button_width: 200px;
         --download_button_font_size: 20px;
     }
