@@ -33,6 +33,10 @@
 
     --initial_project_width: 50;
     --last_buffer_height: 300px;
+
+    --download_button_height: 200px;
+    --download_button_width: 500px;
+    --download_button_font_size: 50px;
     
 }
 
@@ -648,9 +652,177 @@ header{
     border-color: #919191;
 }
 
-.Showreel{
-    width: 100%;
+.mitgliederantrag{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    font-family: LEMONMILK, entsans;
+    font-size: var(--intro-size);
+    margin: 20px;
 }
+
+.mitgliederantrag_download_button{
+    width: var(--download_button_width);
+    height: var(--download_button_height);
+    background-color: #5E2028;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.mitgliederantrag_download_button h1{
+    color: var(--white);
+    font-size: var(--download_button_font_size);
+    font-family: LEMONMILK, entsans;
+}
+
+.mitgliederantrag_download_button img{
+    width: var(--download_button_font_size);
+    height: var(--download_button_font_size);
+    margin-left: 20px;
+}
+
+.veranstaltungen-container{
+    width: 100%;
+    height: min-content;
+    background-color: var(--white);
+}
+
+ul {
+  width: 100vw;
+  height: auto;
+  padding: 20px;
+  display: flex;
+  gap: 4vw;
+
+  overflow-x: scroll;
+  scroll-snap-type: x mandatory;
+}
+
+li {
+  list-style-type: none;
+  background-color: var(--ultra-white);
+  border: 1px solid var(--ultra-white);
+  border-radius: 50px;
+  padding: 20px;
+
+  flex: 0 0 80%;
+
+  scroll-snap-align: center;
+}
+
+li:nth-child(even) {
+  background-color: var(--black);
+  color: var(--white);
+}
+
+
+
+
+.calendar{
+  box-sizing:border-box;
+  width:390px;
+  background-color: #fff;
+  box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
+  font-family: 'Roboto', sans-serif;
+  padding: 20px 30px;
+  margin: 15px;
+  color:#363b41;
+  display: inline-block;
+}
+
+.calendar_header{
+  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+.header_copy{
+  color: var(--gray);
+  font-size:20px;
+}
+.today{
+  box-sizing:border-box;
+  margin:20px 0 40px;
+}
+
+.current_day{
+  box-sizing:border-box;
+  width:100%;
+  height: 140px;
+  background-image: linear-gradient(-222deg, #5E2028, #810600);
+  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
+  padding:30px;
+  color:#fff;
+}
+
+.current_date{
+  box-sizing:border-box;
+  font-size:20px;
+  margin: 20px 0;
+  display: inline-block;
+}
+
+.big_dot{
+  box-sizing:border-box;
+  display: inline-block;
+  width: 40px;
+  height:40px;
+  border-radius:50%;
+  background-color: #fff;
+  cursor: pointer;
+  margin:0 0 0 25px;
+  color:#c2c2c2;
+  padding: 11px 13px;
+}
+
+.calendar_events{
+  color: var(--gray);
+}
+
+.event_item{
+  margin: 18px 0;
+  padding:5px;
+  cursor: pointer;
+  &:hover{
+    background-image: linear-gradient(-222deg, #5E2028, #810600);
+    box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
+    .ei_Dot{
+      background-color: #fff;
+    }
+    .ei_discription,.ei_Title{
+      color:#fff;
+    }
+  }
+}
+
+.ei_Dot,.ei_Title{
+  display:inline-block;
+}
+
+.ei_Dot{
+  border-radius:50%;
+  width:10px;
+  height: 10px;
+  background-color: var(--light-gray);
+  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
+}
+.dot_active{
+  background-color: #5E2028;
+}
+
+.ei_Title{
+  margin-left:10px;
+  color:#363b41;
+}
+
+.ei_discription{
+  font-size:12px;
+  margin-left:27px;
+}
+
+
 
 /*Media-queries*/
 
@@ -690,6 +862,9 @@ header{
         --margin-schriftzug: 40px;
         --schriftzug_margin: 77;
         --SSF_initial_height: 5px;
+        --download_button_height: 160px;
+        --download_button_width: 400px;
+        --download_button_font_size: 40px;
     }
 
     .text p {
@@ -895,6 +1070,9 @@ header{
         --schriftzug_margin: 55;
         --last_buffer_height: 200px;
         --SSF_initial_height: 3px;
+        --download_button_height: 120px;
+        --download_button_width: 300px;
+        --download_button_font_size: 30px;
     }
 }
 
@@ -934,12 +1112,15 @@ header{
     :root{
         --intro-size: 20px;
         --projecttitle-size: 34px;
-        --schriftzug-size: 40px;
+        --schriftzug-size: 35px;
         --intro_header: 42px;
         --margin-schriftzug: 12px;
         --schriftzug_margin: 50;
         --last_buffer_height: 100px;
         --SSF_initial_height: 2px;
+                --download_button_height: 80px;
+        --download_button_width: 200px;
+        --download_button_font_size: 20px;
     }
 }
 

@@ -19,6 +19,11 @@ let project2 = document.getElementById('project2')
 let project3 = document.getElementById('project3')
 let project4 = document.getElementById('project4')
 
+const currentDate = document.getElementById('current-date');
+const options = { day: 'numeric', month: 'long', year: 'numeric' };
+const today = new Date();
+currentDate.textContent = today.toLocaleDateString('de-DE', options);
+
 /*
 let title1 = document.getElementById('title1');
 let link1 = document.getElementById('link1');
