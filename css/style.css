@@ -516,7 +516,6 @@ header{
 .project_link_icon:hover{
     transform: scale(80%);
     translate: 15px;
-    
 }
 
 .intro{
@@ -637,6 +636,7 @@ header{
     flex-direction: column;
     align-items: center;
     width: 100%;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 .impressum_title{
@@ -662,10 +662,10 @@ header{
     align-items: center;
     color: var(--white);
     font-family: LEMONMILK, entsans;
-    font-size: var(--intro-size);
+    font-size: var(--download_button_font_size);
     border: 2px solid var(--white);
     width: 80vw;
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     margin-left: 5vw;
     padding: 5vw;
 }
@@ -679,9 +679,17 @@ header{
     height: var(--download_button_height);
     background-color: #5E2028;
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     text-decoration: none;
+    transition: transform 0.1s ease-in-out;
+}
+
+.mitgliederantrag_download_button:hover{
+    background-color: #810600;
+    transform: scale(105%);
+    border: 3px solid var(--ultra-white);
 }
 
 .mitgliederantrag_download_button h1{
@@ -702,7 +710,13 @@ header{
     background-color: var(--white);
 }
 
-.veranstaltungen-container h2{
+.veranstaltungen-inner-container{
+    width: 95%;
+    margin-left: 5vw;
+    padding-bottom: 5%;
+}
+
+.veranstaltungen-inner-container h2{
     font-family: LEMONMILK, entsans;
     font-size: var(--veranstaltungen_header_font_size);
     padding: 10px;
@@ -714,9 +728,9 @@ header{
     }
 
 ul {
-  width: 100vw;
+  width: 95vw;
   height: auto;
-  padding: 20px;
+  padding: 0px;
   display: flex;
   gap: 4vw;
 
@@ -734,7 +748,6 @@ li {
   flex: 0 0 80%;
 
   scroll-snap-align: center;
-  filter: grayscale(70%);
 }
 
 li a{
@@ -743,21 +756,36 @@ li a{
     color: var(--black);
 }
 
-li:nth-child(odd) {
-  background-image: url('/media/BackgroundImagev4.jpg');
+li:nth-child(even) {
   color: var(--black);
 }
 
-li:nth-child(even) {
+li:nth-child(odd) {
   background-color: var(--black);
   color: var(--white);
 }
 
-li:hover {
-  filter: grayscale(0%);
+
+
+.slide_content{
+    display:flex; 
+    flex-direction: row; 
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
 }
 
+.slide_content div{
+    margin: 2.5%;
+    filter: grayscale(60%);
+    transition: transform 0.1s ease-in-out;
+}
 
+.slide_content div:hover{
+    filter: grayscale(0%);
+    transform: scale(110%);
+    border: 3px solid black;
+}
 
 .calendar{
   box-sizing:border-box;
@@ -804,14 +832,18 @@ li:hover {
 .big_dot{
   box-sizing:border-box;
   display: inline-block;
-  width: 40px;
-  height:40px;
+  width: 10%;
+  height:10%;
   border-radius:50%;
-  background-color: #fff;
+  background-color: var(--white);
   cursor: pointer;
   margin:0 0 0 25px;
-  color:#c2c2c2;
+  color: var(--ultra-white);
   padding: 11px 13px;
+  position: relative;
+  left: 80vw;
+  top: 45%;
+  z-index: 2;
 }
 
 .calendar_events{
@@ -881,6 +913,31 @@ li:hover {
         --schriftzug-size: 240px;
     }
 }
+
+@media (max-width: 2400px){
+    :root{
+        --schriftzug-size: 210px;
+    }
+}
+
+@media (max-width: 2150px){
+    :root{
+        --schriftzug-size: 180px;
+    }
+}
+
+@media (max-width: 1850px){
+    :root{
+        --schriftzug-size: 160px;
+    }
+}
+
+@media (max-width: 1650px){
+    :root{
+        --schriftzug-size: 150px;
+    }
+}
+
 /*2xl*/
 @media (max-width: 1536px){
     .container{
@@ -894,7 +951,7 @@ li:hover {
     :root{
         --intro-size: 30px;
         --projecttitle-size: 110px;
-        --schriftzug-size: 135px;
+        --schriftzug-size: 125px;
         --intro_header: 60px;
         --margin-schriftzug: 40px;
         --schriftzug_margin: 77;
@@ -928,7 +985,7 @@ li:hover {
     :root{
         --intro-size: 27px;
         --projecttitle-size: 92px;
-        --schriftzug-size: 130px;
+        --schriftzug-size: 115px;
         --intro_header: 50px;
         --margin-schriftzug: 34px;
         --schriftzug_margin: 70;
@@ -945,6 +1002,12 @@ li:hover {
     }
 }
 
+@media (max-width: 1160px){
+    :root{
+        --schriftzug-size: 100px;
+    }
+}
+
 /*lg*/
 @media (max-width: 1024px){
     .container{
@@ -958,7 +1021,7 @@ li:hover {
     :root{
         --intro-size: 20px;
         --projecttitle-size: 74px;
-        --schriftzug-size: 90px;
+        --schriftzug-size: 75px;
         --intro_header: 40px;
         --margin-schriftzug: 27px;
         --schriftzug_margin: 63;
@@ -1028,7 +1091,7 @@ li:hover {
     :root{
         --intro-size: 25px;
         --projecttitle-size: 55px;
-        --schriftzug-size: 80px;
+        --schriftzug-size: 60px;
         --intro_header: 55px;
         --margin-schriftzug: 20px;
         --schriftzug_margin: 60;
@@ -1111,7 +1174,7 @@ li:hover {
         --nav_in_social: flex;
         --intro-size: 20px;
         --projecttitle-size: 46px;
-        --schriftzug-size: 60px;
+        --schriftzug-size: 45px;
         --intro_header: 50px;
         --margin-schriftzug: 17px;
         --schriftzug_margin: 55;
