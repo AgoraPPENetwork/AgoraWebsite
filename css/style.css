@@ -72,7 +72,7 @@ header{
     align-items: center;
     display: var(--socials);
     margin-top: 70px;
-    width: 250px;
+    width: fit-content;
     background-color: rgba(0,0,0,0.6);
     z-index: 99;
 }
@@ -96,7 +96,7 @@ header{
 .nav_in_socials{
     display: var(--nav_in_social);
     flex-direction: column;
-    width: 250px;
+    width: fit-content;
     z-index: 99;
     text-decoration: none;
     color: var(--white);
@@ -390,7 +390,8 @@ header{
   color: var(--black);
   border-radius: 8px;
   padding: 30px;
-  width: fit-content;;
+  width: fit-content;
+  max-width: 80%;
 }
 
 .text-block {
@@ -1239,6 +1240,7 @@ li:nth-child(odd) {
         --download_button_height: 80px;
         --download_button_width: 200px;
         --download_button_font_size: 20px;
+        --text_header_font_size: 25px;
     }
 }
 
