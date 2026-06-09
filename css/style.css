@@ -726,6 +726,7 @@ header{
 
 .veranstaltungen-inner-container h2{
     font-family: LEMONMILK, entsans;
+    font-family: 'Roboto', sans-serif;
     font-size: var(--veranstaltungen_header_font_size);
     padding: 10px;
 }
