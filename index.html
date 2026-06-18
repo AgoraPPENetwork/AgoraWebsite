@@ -122,85 +122,100 @@
     
     
     <div class="veranstaltungen-container">
+        <button class="carousel_button prev_button" id="prev_button" style="right: 78vw;">←</button>
+
         <div class="veranstaltungen-inner-container">
             <h2 style="padding: 5%; margin: auto; ">Veranstaltungen:</h2>
 
             <div class="veranstaltung-order">
 
-            <div class="calendar">
-              <div class="calendar_header">
-                <h1>Veranstaltungen  <br> SoSe 2026 </h1>
-                <p class="header_copy"> Kalender Plan</p>
-              </div>
-              <div class="today">
-                <div class="current_day">
-                  <div>Heute</div>
-                  <div id="current-date" class="current_date"></div>
-                </div>
-              </div>
-              <div class="calendar_events">
-                <p style="font-size: 16px;">Diskussions Veranstaltungen</p>
-                <div class="event_item">
-                  <div class="ei_Dot dot_active"></div>
-                  <div class="ei_Title">Aktienrente</div>
-                  <div class="ei_discription">19.04.26 (11:00-13:00 Uhr)</div>
-                </div>
-                <div class="event_item">
-                  <div class="ei_Dot dot_active"></div>
-                  <div class="ei_Title">Deutsche Bahn</div>
-                  <div class="ei_discription">05.05.26 (20:00-22:00 Uhr)</div>
-                </div>
-                <div class="event_item">
-                  <div class="ei_Dot dot_active"></div>
-                  <div class="ei_Title">Gesundheitssystem</div>
-                  <div class="ei_discription">17.05.26 (11:00 Uhr)</div>
-                </div>
-                <div class="event_item">
-                  <div class="ei_Dot dot_active"></div>
-                  <div class="ei_Title">Rentensystem
-                  </div>
-                  <div class="ei_discription">07.06.26 (11:00 Uhr)</div>
-                </div>
-                <div class="event_item">
-                  <div class="ei_Dot "></div>
-                  <div class="ei_Title">Wohnungsnot</div>
-                  <div class="ei_discription">14.06.26 (14:00 Uhr)</div>
-                </div>
-                <div class="event_item">
-                  <div class="ei_Dot"></div>
-                  <div class="ei_Title">Sechstes Treffen </div>
-                  <div class="ei_discription">28.06.26 (11:00 Uhr)</div>
-                </div>
-              </div>
-            </div>
+                    <div class="calendar">
+                        <div class="calendar_header">
+                            <h1>Veranstaltungen  <br> SoSe 2026 </h1>
+                            <p class="header_copy"> Kalender Plan</p>
+                        </div>
+                        <div class="today">
+                            <div class="current_day">
+                                <div>Heute</div>
+                                <div id="current-date" class="current_date"></div>
+                            </div>
+                        </div>
+                        <div class="calendar_events">
+                            <p style="font-size: 16px;">Diskussions Veranstaltungen</p>
+                            <div class="event_item">
+                                <div class="ei_Dot dot_active"></div>
+                                <div class="ei_Title">Aktienrente</div>
+                                <div class="ei_discription">19.04.26 (11:00-13:00 Uhr)</div>
+                            </div>
+                            <div class="event_item">
+                              <div class="ei_Dot dot_active"></div>
+                              <div class="ei_Title">Deutsche Bahn</div>
+                              <div class="ei_discription">05.05.26 (20:00-22:00 Uhr)</div>
+                            </div>
+                            <div class="event_item">
+                              <div class="ei_Dot dot_active"></div>
+                              <div class="ei_Title">Gesundheitssystem</div>
+                              <div class="ei_discription">17.05.26 (11:00 Uhr)</div>
+                            </div>
+                            <div class="event_item">
+                              <div class="ei_Dot dot_active"></div>
+                              <div class="ei_Title">Rentensystem
+                              </div>
+                              <div class="ei_discription">07.06.26 (11:00 Uhr)</div>
+                            </div>
+                            <div class="event_item">
+                              <div class="ei_Dot dot_active"></div>
+                              <div class="ei_Title">Wohnungsnot</div>
+                              <div class="ei_discription">14.06.26 (14:00 Uhr)</div>
+                            </div>
+                            <div class="event_item">
+                              <div class="ei_Dot"></div>
+                              <div class="ei_Title">Sechstes Treffen </div>
+                              <div class="ei_discription">28.06.26 (11:00 Uhr)</div>
+                            </div>
+                        </div>
+                    </div>
 
-
-            <ul>
-              <li data-accName="Item 1" id="Thema1">
-                <h2>Rentensystem I. - Aktienrente</h2>
-                <div class="slide_content">
-                    <div style="width: 55%;"><a href="media/presentations/Presentation Aktienrente.pdf"><img src="media/presentations/PresentationAktienrenteThumbnail.jpeg" style="width: 100%;"></img></a></div>
-                    <div style="width: 30%;"><a href="media/presentations/Rentensystem.pdf"><img src="media/presentations/RentensystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                <div class="carousel_container">
+                    <ul class="carousel">
+                      <li data-accName="Item 1" id="Thema1">
+                        <h2>Rentensystem I. - Aktienrente</h2>
+                        <div class="slide_content">
+                            <div style="width: 55%;"><a href="media/presentations/Presentation Aktienrente.pdf"><img src="media/presentations/PresentationAktienrenteThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                            <div style="width: 30%;"><a href="media/presentations/Rentensystem.pdf"><img src="media/presentations/RentensystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                        </div>
+                      </li>
+                      <li data-accName="Item 2" id="Thema2">
+                        <h2>Deutsche Bahn - Spaltung in Netz und Betrieb</h2>
+                         <div class="slide_content">
+                            <div style="width: 55%;"><a href="media/presentations/Präsentation Deutsche Bahn.pdf"><img src="media/presentations/PresentationDeutscheBahnThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                            <div style="width: 30%;"><a href="media/presentations/Deutsche Bahn.pdf"><img src="media/presentations/DeutscheBahnThumbnail.jpeg" style="width: 100%;"></img></a></div>      
+                        </div>
+                      </li>
+                      <li data-accName="Item 3" id="Thema3">
+                        <h2>Gesundheitssystem - Abschaffung der privaten Rentenversicherung</h2>
+                         <div class="slide_content">
+                            <div style="width: 55%;"><a href="media/presentations/Präsentation Gesundheitssystem.pdf"><img src="media/presentations/PresentationGesundheitssystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                            <div style="width: 30%;"><a href="media/presentations/Gesundheitssystem.pdf"><img src="media/presentations/GesundheitssystemThumbnail.jpeg" style="width: 100%;"></img></a></div>      
+                         </div>
+                      </li>     
+                      <li data-accName="Item 4" id="Thema4">
+                        <h2>TBA</h2>
+                         <div class="slide_content">
+                         </div>
+                      </li>            
+                      <li data-accName="Item 5" id="Thema5">
+                        <h2>Wohnungsnot - Wohnungskrise in Deutschland</h2>
+                         <div class="slide_content">
+                            <div style="width: 55%;"><a href="media/presentations/Präsentation Wohnungsnot.pdf"><img src="media/presentations/PresentationWohnungsnotThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                         </div>
+                      </li>
+                    </ul>
                 </div>
-              </li>
-              <li data-accName="Item 2" id="Thema2">
-                <h2>Deutsche Bahn - Spaltung in Netz und Betrieb</h2>
-                 <div class="slide_content">
-                    <div style="width: 55%;"><a href="media/presentations/Präsentation Deutsche Bahn.pdf"><img src="media/presentations/PresentationDeutscheBahnThumbnail.jpeg" style="width: 100%;"></img></a></div>
-                    <div style="width: 30%;"><a href="media/presentations/DeutscheBahn.pdf"><img src="media/presentations/DeutscheBahnThumbnail.jpeg" style="width: 100%;"></img></a></div>      
-                </div>
-              </li>
-              <li data-accName="Item 3" id="Thema3">
-                <h2>Gesundheitssystem - Abschaffung der privaten Rentenversicherung</h2>
-                 <div class="slide_content">
-                    <div style="width: 55%;"><a href="media/presentations/Präsentation Gesundheitssystem.pdf"><img src="media/presentations/PresentationGesundheitssystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
-                    <div style="width: 30%;"><a href="media/presentations/Gesundheitssystem.pdf"><img src="media/presentations/GesundheitssystemThumbnail.jpeg" style="width: 100%;"></img></a></div>      
-                 </div>
-              </li>
-            </ul>
-
             </div>
         </div>
+        <button class="carousel_button next_button" id="next_button" style="right: 2vw;">→</button>
+
     </div>
 
     

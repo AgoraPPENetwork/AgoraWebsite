@@ -318,6 +318,30 @@ window.addEventListener('resize', ()=> {
      
 });
 
+const carousel = document.querySelector('.carousel');
+const prevButton = document.querySelector('.prev_button');
+const nextButton = document.querySelector('.next_button');
+
+const slideWidth = carousel.querySelector('li').offsetWidth;
+
+const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+
+const step = slideWidth + gap;
+
+
+prevButton.addEventListener('click', () => {
+    carousel.scrollBy({
+        left: -slideWidth,
+        behavior: 'smooth'
+    });
+});
+
+nextButton.addEventListener('click', () => {
+    carousel.scrollBy({
+        left: slideWidth,
+        behavior: 'smooth'
+    });
+});
 
 //Mouse move effect 
 /*
