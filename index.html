@@ -122,12 +122,10 @@
     
     
     <div class="veranstaltungen-container">
-        <button class="carousel_button prev_button" id="prev_button" style="right: 78vw;">←</button>
 
         <div class="veranstaltungen-inner-container">
-            <h2 style="padding: 5%; margin: auto; ">Veranstaltungen:</h2>
+            <h2 class="intro_header" style="padding: 5%; margin: auto;">Veranstaltungen:</h2>
 
-            <div class="veranstaltung-order">
 
                     <div class="calendar">
                         <div class="calendar_header">
@@ -176,13 +174,17 @@
                         </div>
                     </div>
 
+            <div class="veranstaltung-wrapper">
+
+                <button class="carousel_button prev_button" id="prev_button" style="left: -2vw;">←</button>
+
                 <div class="carousel_container">
                     <ul class="carousel">
                       <li data-accName="Item 1" id="Thema1">
                         <h2>Rentensystem I. - Aktienrente</h2>
                         <div class="slide_content">
                             <div style="width: 55%;"><a href="media/presentations/Presentation Aktienrente.pdf"><img src="media/presentations/PresentationAktienrenteThumbnail.jpeg" style="width: 100%;"></img></a></div>
-                            <div style="width: 30%;"><a href="media/presentations/Rentensystem.pdf"><img src="media/presentations/RentensystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
+                            <div style="width: 30%;"><a href="media/presentations/Aktienrente.pdf"><img src="media/presentations/AktienrenteThumbnail.jpeg" style="width: 100%;"></img></a></div>
                         </div>
                       </li>
                       <li data-accName="Item 2" id="Thema2">
@@ -200,8 +202,9 @@
                          </div>
                       </li>     
                       <li data-accName="Item 4" id="Thema4">
-                        <h2>TBA</h2>
+                        <h2>Rentensystem II. </h2>
                          <div class="slide_content">
+                            <div style="width: 55%;"><a href="media/presentations/PresentationRentensystem.pdf"><img src="media/presentations/PresentationRentensystemThumbnail.jpeg" style="width: 100%;"></img></a></div>
                          </div>
                       </li>            
                       <li data-accName="Item 5" id="Thema5">
@@ -212,9 +215,10 @@
                       </li>
                     </ul>
                 </div>
+                <button class="carousel_button next_button" id="next_button" style="right: 2vw;">→</button>
+
             </div>
         </div>
-        <button class="carousel_button next_button" id="next_button" style="right: 2vw;">→</button>
 
     </div>
 
@@ -238,12 +242,14 @@
             </div>
         </div>
     </div>
-    <div class="mitgliederantrag">
-        <h1> Downloade hier den Mitgliederantrag: </h1>       
-        <a class="mitgliederantrag_download_button" href="media/Mitgliederantrag_Agora_PPE_Network.pdf" download>
-            <h1>Download</h1>
-            <img src="media/download_button2.png" >
-        </a>
+    <div class="mitgliederantrag_wrapper">
+        <div class="mitgliederantrag">
+            <h1> Downloade hier den Mitgliederantrag: </h1>       
+            <a class="mitgliederantrag_download_button" href="media/Mitgliederantrag_Agora_PPE_Network.pdf" download>
+                <h1>Download</h1>
+                <img src="media/download_button2.png" >
+            </a>
+        </div>
     </div>
 
     <div class="buffer" style="background-color: rgb(27, 26, 26); height: 300px;">

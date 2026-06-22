@@ -374,7 +374,7 @@ header{
 .content {
   position: relative;
   padding: 40px 20px;
-  background: #ecf0f1;
+  background: #5E2028;/*#ecf0f1;*/
   display: flex;
   align-items: center;
   flex-direction: column; /* Textblöcke untereinander */
@@ -395,7 +395,7 @@ header{
 }
 
 .text-block {
-  background: #5E2028;
+  background: var(--black);/*#5E2028;*/
   font-size: 40px;
   color: var(--white);
   padding: 25px;
@@ -663,6 +663,15 @@ header{
     transform: scale(115%);
 }
 
+.mitgliederantrag_wrapper{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: var(--black);
+}
+
 .mitgliederantrag{
     display: flex;
     flex-direction: column;
@@ -672,13 +681,14 @@ header{
     font-family: LEMONMILK, entsans;
     font-size: var(--download_button_font_size);
     border: 2px solid var(--white);
-    width: 80vw;
+    width: fit-content;/*80vw;*/
     margin-bottom: 50px;
     margin-left: 5vw;
     padding: 5vw;
 }
 
 .mitgliederantrag h1{
+    text-align: center;
     font-size: var(--download_button_font_size);
 }
 
@@ -695,9 +705,9 @@ header{
 }
 
 .mitgliederantrag_download_button:hover{
-    background-color: #810600;
-    transform: scale(105%);
-    border: 3px solid var(--ultra-white);
+    background-color: #962b38;
+    transform: scale(101%);
+    border: 1px solid var(--ultra-white);
 }
 
 .mitgliederantrag_download_button h1{
@@ -726,16 +736,17 @@ header{
     position: relative;
 }
 
-.veranstaltungen-inner-container h2{
+.carousel_container h2{
     font-family: LEMONMILK, entsans;
     font-family: 'Roboto', sans-serif;
     font-size: var(--veranstaltungen_header_font_size);
     padding: 10px;
 }
 
-.veranstaltung-order{
+.veranstaltung-wrapper{
         display: flex;
         flex-direction: row;
+        position: relative;
     }
 
 
@@ -832,7 +843,7 @@ li:nth-child(odd) {
 
 .calendar{
   box-sizing:border-box;
-  width: 100%;
+  width: 80vw;
   background-color: #fff;
   box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
   font-family: 'Roboto', sans-serif;
@@ -1049,6 +1060,10 @@ li:nth-child(odd) {
     :root{
         --schriftzug-size: 100px;
     }
+
+    .mitgliederantrag{
+        width: 80vw;
+    }
 }
 
 /*lg*/
@@ -1084,9 +1099,9 @@ li:nth-child(odd) {
     font-size: 30px;
     }
 
-    .veranstaltung-order{
-        display: flex;
-        flex-direction: column;
+    .veranstaltung-wrapper{
+        width: 100%;
+        position: relative;
     }
 
     .text p {
@@ -1135,7 +1150,7 @@ li:nth-child(odd) {
         --intro-size: 25px;
         --projecttitle-size: 55px;
         --schriftzug-size: 60px;
-        --intro_header: 55px;
+        --intro_header: 50px;
         --margin-schriftzug: 20px;
         --schriftzug_margin: 60;
         --initial_project_width: 80;
@@ -1218,7 +1233,7 @@ li:nth-child(odd) {
         --intro-size: 20px;
         --projecttitle-size: 46px;
         --schriftzug-size: 45px;
-        --intro_header: 50px;
+        --intro_header: 45px;
         --margin-schriftzug: 17px;
         --schriftzug_margin: 55;
         --last_buffer_height: 200px;
@@ -1267,7 +1282,7 @@ li:nth-child(odd) {
         --intro-size: 20px;
         --projecttitle-size: 34px;
         --schriftzug-size: 35px;
-        --intro_header: 42px;
+        --intro_header: 32px;
         --margin-schriftzug: 12px;
         --schriftzug_margin: 50;
         --last_buffer_height: 100px;
