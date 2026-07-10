@@ -374,7 +374,7 @@ header{
 .content {
   position: relative;
   padding: 40px 20px;
-  background: #5E2028;/*#ecf0f1;*/
+  background: #d4d4d8;/*#ecf0f1;*/
   display: flex;
   align-items: center;
   flex-direction: column; /* Textblöcke untereinander */
@@ -386,7 +386,7 @@ header{
   font-size: var(--text_header_font_size);
   font-weight: bold;
   margin-bottom: 20px;
-  background: white;
+  background: #d4d4d8;
   color: var(--black);
   border-radius: 8px;
   padding: 30px;
@@ -395,13 +395,13 @@ header{
 }
 
 .text-block {
-  background: var(--black);/*#5E2028;*/
+  background: var(--ultra-white);/*#5E2028;*/
   font-size: 40px;
-  color: var(--white);
+  color: var(--black);
   padding: 25px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  width: 80%;
+  width: 60%;
 }
 
 .text {
@@ -740,7 +740,7 @@ header{
     font-family: LEMONMILK, entsans;
     font-family: 'Roboto', sans-serif;
     font-size: var(--veranstaltungen_header_font_size);
-    padding: 10px;
+    padding: 30px;
 }
 
 .veranstaltung-wrapper{
@@ -837,7 +837,7 @@ li:nth-child(odd) {
 
 .slide_content div:hover{
     filter: grayscale(0%);
-    transform: scale(110%);
+    transform: scale(101%);
 }
 
 
@@ -1024,6 +1024,10 @@ li:nth-child(odd) {
      width: 40%;
     }
     
+      .text-block {
+    width: 80%;
+     }
+
 }
 
 /*xl*/
@@ -1055,6 +1059,7 @@ li:nth-child(odd) {
      width: 50%;
     }
 }
+  
 
 @media (max-width: 1160px){
     :root{
@@ -1162,6 +1167,7 @@ li:nth-child(odd) {
 
     .text-block {
     padding: 20px;
+    width: 90%;
      }
 
     .text {
