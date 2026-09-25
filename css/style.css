@@ -372,47 +372,128 @@ header{
 }  
 
 .content {
-  position: relative;
-  padding: 40px 20px;
-  background: #d4d4d8;/*#ecf0f1;*/
-  display: flex;
-  align-items: center;
-  flex-direction: column; /* Textblöcke untereinander */
-  gap: 30px; /* Abstand zwischen Textblöcken */
+    position: relative;
+
+    padding: 70px 20px 90px;
+
+    background: #d4d4d8;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 45px;
 }
+
+
+/* --------------------------------
+   TEXT BLOCK
+-------------------------------- */
+/* --------------------------------
+   ÜBERSCHRIFT
+-------------------------------- */
 
 .text_header {
-  font-family:  LEMONMILK, Baskerville;
-  font-size: var(--text_header_font_size);
-  font-weight: bold;
-  margin-bottom: 20px;
-  background: #d4d4d8;
-  color: var(--black);
-  border-radius: 8px;
-  padding: 30px;
-  width: fit-content;
-  max-width: 80%;
+    font-family: LEMONMILK, Baskerville, serif;
+
+    font-size: var(--text_header_font_size);
+
+    font-weight: bold;
+
+    line-height: 1.2;
+
+    color: var(--black);
+
+    margin: 0 0 28px;
+
+    padding: 0;
+
+    max-width: 100%;
+
+    background: transparent;
+
+    border-radius: 0;
 }
+
 
 .text-block {
-  background: var(--ultra-white);/*#5E2028;*/
-  font-size: 40px;
-  color: var(--black);
-  padding: 25px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-  width: 60%;
+    position: relative;
+
+    width: min(850px, 90%);
+
+    padding: 38px 45px 42px;
+
+    background: var(--ultra-white);
+    color: var(--black);
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(0, 0, 0, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
 }
+
+.text-block:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+
+/* Akzentlinie links */
+
+.text-block::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 5px;
+
+    background: var(--black);
+}
+
+
+/* --------------------------------
+   TEXT
+-------------------------------- */
 
 .text {
-  display: flex;
-  flex-direction: row;
+    display: block;
+
+    font-family: Baskerville, Georgia, serif;
+
+    font-size: 21px;
+
+    line-height: 1.7;
+
+    color: var(--black);
 }
 
+
+
+/* einzelne Absätze */
+
 .text p {
-  width: 100%;
-  margin: 20px;
-  border-radius: 8px;
+    margin: 0 0 20px;
+}
+
+
+/* letzter Absatz braucht keinen Abstand */
+
+.text p:last-child {
+    margin-bottom: 0;
 }
 
 .text img {
@@ -1094,26 +1175,35 @@ li:nth-child(odd) {
 
     
 
+  .content {
+        padding: 55px 20px 70px;
+        gap: 30px;
+    }
+
     .text-block {
-    padding: 25px;
-     }
+        width: min(90%, 700px);
+
+        padding: 30px 32px 34px;
+    }
+
+    .text_header {
+        font-size: calc(var(--text_header_font_size) * 0.85);
+
+        margin-bottom: 22px;
+    }
 
     .text {
-    display: flex;
-    flex-direction: column;
-    font-size: 30px;
+        font-size: 19px;
+        line-height: 1.65;
     }
+
+
 
     .veranstaltung-wrapper{
         width: 100%;
         position: relative;
     }
 
-    .text p {
-    width: 100%;
-    margin: 10px;
-    border-radius: 8px;
-    }
 
     .text img {
     width: 100%;
@@ -1165,21 +1255,38 @@ li:nth-child(odd) {
 
     }
 
+    .content {
+        padding: 35px 12px 50px;
+        gap: 22px;
+    }
+
     .text-block {
-    padding: 20px;
-    width: 90%;
-     }
+        width: 100%;
+
+        padding: 25px 22px 28px;
+
+        border-radius: 10px;
+    }
+
+    .text-block::before {
+        width: 4px;
+    }
+
+    .text_header {
+        font-size: 24px;
+
+        line-height: 1.25;
+
+        margin-bottom: 18px;
+    }
 
     .text {
-    display: flex;
-    flex-direction: column;
-    font-size: 25px;
+        font-size: 17px;
+        line-height: 1.6;
     }
 
     .text p {
-    width: 100%;
-    margin: 10px;
-    border-radius: 8px;
+        margin-bottom: 16px;
     }
 
     .text img {
