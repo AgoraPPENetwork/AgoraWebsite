@@ -12,17 +12,12 @@ let projekt_ausklapp_button = document.getElementById('ausklapp_button')
 let close_projektliste = document.getElementById('close_projektliste')
 
 let wrapper = document.getElementById('wrapper')
-let buffer1 = document.getElementById('buffer1')
-let buffer2 = document.getElementById('buffer2')
 let project1 = document.getElementById('project1')
 let project2 = document.getElementById('project2')
 let project3 = document.getElementById('project3')
 let project4 = document.getElementById('project4')
 
-const currentDate = document.getElementById('current-date');
-const options = { day: 'numeric', month: 'long', year: 'numeric' };
-const today = new Date();
-currentDate.textContent = today.toLocaleDateString('de-DE', options);
+document.documentElement.classList.add('js');
 
 /*
 let title1 = document.getElementById('title1');
@@ -70,14 +65,13 @@ function grow_function(value, start, range){
 }
 
 //scroll events
-window.addEventListener('scroll', ()=> {
+//updates the schriftzug animation, also called on resize so both use the same calculation
+function updateSchriftzug() {
     let value = window.scrollY;
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     let scrollHeight = document.body.scrollHeight;
     let scrollInPercent = (value*100)/scrollHeight;
-    console.log(scrollInPercent);
-    console.log(scrollHeight); 
 
     var schriftzug_margin = /*Number(styleRoot.getPropertyValue('--schriftzug_margin')); */ vw - (2*(75)) - ((80 * ((1 - scrollInPercent/5.5) + /*1/5*/((230*100/vw)/80) * (scrollInPercent/5.5)))/100 * vw);
 
@@ -163,14 +157,6 @@ window.addEventListener('scroll', ()=> {
             wrapper.style.height = 150 * ((1 - (value-200)/650 ) + 5/10 * ((value-200)/650 )) +'vh';
         }
 
-        if(value >= 1700 && value <= 1950){
-            buffer1.style.height = 90 * ((1 - (value-1700)/250 ) + 1/5 * ((value-1700)/250 )) +'vh';
-        }
-
-        if(value >= 2250 && value <= 2500){
-            buffer2.style.height = 90 * ((1 - (value-2250)/250 ) + 1/5 * ((value-2250)/250 )) +'vh';
-        }
-    
         /*
         var initial_project_width = Number(styleRoot.getPropertyValue('--initial_project_width'));
 
@@ -232,8 +218,10 @@ window.addEventListener('scroll', ()=> {
         }
         */
     }
-        
-});
+
+}
+
+window.addEventListener('scroll', updateSchriftzug);
 
 
 //Click event for socials 
@@ -289,59 +277,50 @@ window.addEventListener('resize', ()=> {
         if(project_ausgeklappt == true){
         styleProjektliste.setProperty('--projektliste', 'initial');
         }
-    } 
+    }
 
-    let value = window.scrollY;
-    
-    var schriftzug_margin = Number(styleRoot.getPropertyValue('--schriftzug_margin'));
-
-    schriftzug.style.marginLeft = -schriftzug_margin * (value/400) + '%';
-
-    var SSF_initial_height = styleRoot.getPropertyValue('--SSF_initial_height');
-    SSF_initial_height = Number(SSF_initial_height.substring(0, SSF_initial_height.length -2));
-     var height = SSF_initial_height * ( (1 - value/400)+ 1/5 * (value/400)) +'px';
-     styleElem.setProperty('--height',  height);
-
-    var schriftzug_size = styleRoot.getPropertyValue('--schriftzug-size');
-     schriftzug_size = Number( schriftzug_size.substring(0, schriftzug_size.length - 2));
-
-     schriftzug_font_big1.style.fontSize = schriftzug_size * ((1 - value/400) + 1/5 * (value/400)) + 'px';
-     schriftzug_font_small.style.fontSize = (schriftzug_size * ((1 - value/400) + 1/5 * (value/400))) / 4.5 + 'px';
-     schriftzug_font_big2.style.fontSize = schriftzug_size * ((1 -value/400) + 1/5 * (value/400)) + 'px';
-
-     var margin = styleRoot.getPropertyValue('--margin-schriftzug');
-     margin = Number(margin.substring(0, margin.length - 2));
-
-     schriftzug_font_big1.style.margin = margin *((1 - value/400)+ 1/5 * (value/400))+ 'px';
-     schriftzug_font_small.style.margin = margin *((1 - value/400) + 1/5 * (value/400))+ 'px';
-     schriftzug_font_big2.style.margin = margin *((1 - value/400) + 1/5 * (value/400))+ 'px';
-     
+    updateSchriftzug();
 });
 
-const carousel = document.querySelector('.carousel');
-const prevButton = document.querySelector('.prev_button');
-const nextButton = document.querySelector('.next_button');
+//upcoming events: hide past ones, mark the next one, show a countdown
+const vaToday = document.getElementById('va_today');
+const today = new Date();
+today.setHours(0, 0, 0, 0);
+vaToday.textContent = 'Heute: ' + today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
 
-const slideWidth = carousel.querySelector('li').offsetWidth;
+let upcomingCount = 0;
+document.querySelectorAll('.termin').forEach((termin) => {
+    const date = new Date(termin.dataset.date + 'T00:00:00');
+    const days = Math.round((date - today) / 86400000);
 
-const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+    if (days < 0) {
+        termin.hidden = true;
+        return;
+    }
 
-const step = slideWidth + gap;
-
-
-prevButton.addEventListener('click', () => {
-    carousel.scrollBy({
-        left: -slideWidth,
-        behavior: 'smooth'
-    });
+    upcomingCount++;
+    if (upcomingCount === 1) {
+        termin.classList.add('is_next');
+    }
+    termin.querySelector('.termin_countdown').textContent =
+        days === 0 ? 'Heute' : days === 1 ? 'Morgen' : 'in ' + days + ' Tagen';
 });
 
-nextButton.addEventListener('click', () => {
-    carousel.scrollBy({
-        left: slideWidth,
-        behavior: 'smooth'
-    });
-});
+if (upcomingCount === 0) {
+    document.querySelector('.termine_empty').hidden = false;
+}
+
+//fade in archive entries once they enter the viewport
+const archivObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('is_visible');
+            archivObserver.unobserve(entry.target);
+        }
+    })
+}, { rootMargin: '0px 0px -10% 0px' });
+
+document.querySelectorAll('.archiv_item').forEach((element) => archivObserver.observe(element));
 
 //Mouse move effect 
 /*
@@ -373,7 +352,6 @@ window.addEventListener('mousemove', (e)=> {
 
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
-        console.log(entry) 
         if (entry.isIntersecting) {
             entry.target.classList.add('projectPreviewShow');
         } else {

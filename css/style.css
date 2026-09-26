@@ -5,14 +5,15 @@
     --left: 21%;  
 
 
-    --intro-size: 25px;
+    /* gleiche Werte wie bei 2560px, damit breitere Fenster nicht kleiner werden */
+    --intro-size: 50px;
     --projecttitle-size: 110px;
-    --schriftzug-size: 135px;
-    --intro_header: 60px;
-    
+    --schriftzug-size: 240px;
+    --intro_header: 90px;
 
-    --margin-schriftzug: 40px;
-    --schriftzug_margin: 80;
+
+    --margin-schriftzug: 60px;
+    --schriftzug_margin: 87;
 
     --black: #010101;
     --gray: #3f3f3f;
@@ -516,16 +517,128 @@ header{
 
 .first_container{
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     min-width: 70%;
     max-width: 80%;
-    height: 100vh;
     margin-left: auto;
     margin-right: auto;
     font-family: LEMONMILK, entsans, Baskerville ;
     color: var(--white);
+}
+
+/* "Hallo, wir sind AGORA" füllt weiterhin den ersten Bildschirm */
+.intro_block{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* --------------------------------
+   TEAM
+-------------------------------- */
+
+.team{
+    width: 100%;
+    max-width: 900px;
+    padding-bottom: 140px;
+}
+
+.team_label{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--white);
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(203, 203, 203, 0.3);
+    margin-bottom: 40px;
+}
+
+.team_label ~ .team_label{
+    margin-top: 80px;
+}
+
+.team_vorstand,
+.team_grid{
+    display: grid;
+    gap: 56px 90px;
+}
+
+/* Vorstandsbilder genauso groß wie eine Spalte im Mitglieder-Grid */
+.team_vorstand{
+    grid-template-columns: repeat(2, calc((100% - 80px) / 3));
+    justify-content: center;
+}
+
+.team_grid{
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.member{
+    margin: 0;
+    text-align: center;
+}
+
+.team .profile{
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.member figcaption{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin-top: 18px;
+}
+
+.member_name{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 20px;
+    color: var(--ultra-white);
+}
+
+.member_role{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #D2646F;
+}
+
+.member_study{
+    font-family: Baskerville, Georgia, serif;
+    font-size: 17px;
+    color: #9B9893;
+}
+
+@media (max-width: 768px){
+    .team_vorstand,
+    .team_grid{
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 40px 34px;
+    }
+
+    .team .profile{
+        border-radius: 28px;
+    }
+
+    .member_name{
+        font-size: 17px;
+    }
+
+    .member_study{
+        font-size: 15px;
+    }
+
+    .team{
+        padding-bottom: 90px;
+    }
 }
 
 .intro_header{
@@ -546,8 +659,9 @@ header{
     flex-direction: row;
     align-items: center;
     justify-content: flex-end;
+    max-width: 1100px;
+    margin: 0 auto;
     min-width: 70%;
-    max-width: 80%;
     height: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -715,6 +829,8 @@ header{
     background-position: center;
     position: absolute;
     top: 0%;
+    /* ohne bottom hat das Bild keine Höhe; vorher nur in den Media-Queries gesetzt */
+    bottom: -530px;
     width: 100%;
     z-index: 0;
 }
@@ -803,227 +919,441 @@ header{
     margin-left: 20px;
 }
 
-.veranstaltungen-container{
-    width: 100%;
-    height: min-content;
-    background-color: var(--white);
+/* --------------------------------
+   VERANSTALTUNGEN & ARCHIV
+-------------------------------- */
+
+.veranstaltungen{
+    --va-ink: #111111;
+    --va-text: #2F3437;
+    --va-muted: #787774;
+    --va-line: rgba(0, 0, 0, 0.1);
+    --va-accent: #5E2028;
+    --va-tag-bg: #F1E4E5;
+    --va-tag-text: #5E2028;
+    --va-mono: 'SF Mono', Consolas, 'Courier New', monospace;
+    --va-serif: Baskerville, Georgia, serif;
+
+    background: #F7F6F3;
+    color: var(--va-text);
+    padding: 120px 24px 0;
+}
+
+/* dunkles Band über die volle Breite, nur fürs Archiv */
+.va_archiv{
+    --va-ink: #F5F4F0;
+    --va-text: #D9D7D2;
+    --va-muted: #9B9893;
+    --va-line: rgba(255, 255, 255, 0.12);
+    /* aufgehelltes Agora-Weinrot, damit es auf dunklem Grund lesbar bleibt */
+    --va-accent: #D2646F;
+
+    background: #171615;
+    color: var(--va-text);
+    margin: 80px -24px 0;
+    padding: 80px 24px 140px;
+}
+
+.va_archiv .va_label{
+    margin-top: 0;
+}
+
+.va_inner{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.va_title{
+    font-family: LEMONMILK, Baskerville, serif;
+    font-size: var(--text_header_font_size);
+    font-weight: bold;
+    line-height: 1.1;
+    color: var(--va-ink);
+    margin: 0 0 24px;
+}
+
+.va_lead{
+    font-family: var(--va-serif);
+    font-size: 21px;
+    line-height: 1.6;
+    color: var(--va-muted);
+    max-width: 640px;
+    margin: 0;
+}
+
+.va_label{
+    font-family: var(--va-mono);
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--va-ink);
+    margin-top: 80px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--va-ink);
+}
+
+.va_next_text{
+    font-family: var(--va-serif);
+    font-size: 19px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--va-line);
+}
+
+.va_next_text a{
+    color: var(--va-accent);
+}
+
+.va_label_split{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 6px 24px;
+}
+
+/* Termin-Widget */
+
+.termine{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.termin{
     position: relative;
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) 200px;
+    gap: 40px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--va-line);
 }
 
-.veranstaltungen-inner-container{
-    width: 95%;
-    margin-left: 5%;
-    padding-bottom: 5%;
-    position: relative;
-}
-
-.carousel_container h2{
-    font-family: LEMONMILK, entsans;
-    font-family: 'Roboto', sans-serif;
-    font-size: var(--veranstaltungen_header_font_size);
-    padding: 30px;
-}
-
-.veranstaltung-wrapper{
-        display: flex;
-        flex-direction: row;
-        position: relative;
-    }
-
-
-.carousel_container{
-    position: relative;
-    width: 80vw;
-}
-
-.carousel_button{
-    position: absolute;
-    top: 50%;
-    background-color: lightgray;
-    font-family: Consolas, monospace;
-    font-size: 3rem;
-    color: var(--black);
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    width: 90px;
-    height: 90px;
-    z-index: 2;
-}
-
-.carousel{
-    gap: 2em;
-}
-
-ul {
-  width: 95vw;
-  height: auto;
-  padding: 0px;
-  display: flex;
-  overflow-x: auto;
-  scrollbar-width: none; /* Firefox */
-  scroll-behavior: smooth;
-}
-
-ul::-webkit-scrollbar{
+.termin[hidden]{
     display: none;
 }
 
-ul::scroll-button(right) {
-    content: 'Right';
+.termin_date{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
-li {
-  list-style-type: none;
-  background-color: var(--ultra-white);
-  border: 1px solid var(--ultra-white);
-  border-radius: 50px;
-  margin-bottom: 20px;
-
-  flex: 0 0 80%;
-
-  scroll-snap-align: center;
+.termin_day{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--va-ink);
 }
 
-li a{
+.termin_month{
+    font-family: var(--va-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--va-muted);
+}
+
+.termin_type{
+    display: inline-block;
+    font-family: var(--va-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--va-tag-text);
+    background: var(--va-tag-bg);
+    border-radius: 9999px;
+    padding: 4px 10px;
+}
+
+.termin_title{
+    font-family: var(--va-serif);
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 1.2;
+    color: var(--va-ink);
+    margin: 14px 0 8px;
+}
+
+.termin_desc{
+    font-family: var(--va-serif);
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--va-muted);
+    margin: 0;
+}
+
+.termin_meta{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-family: var(--va-mono);
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    color: var(--va-text);
+    padding-top: 6px;
+}
+
+.termin_countdown{
+    color: var(--va-muted);
+}
+
+.termin_countdown:empty{
+    display: none;
+}
+
+/* hervorgehobener nächster Termin */
+.termin.is_next::before{
+    content: "";
+    position: absolute;
+    left: -24px;
+    top: 32px;
+    bottom: 32px;
+    width: 3px;
+    background: var(--va-accent);
+}
+
+.termin.is_next .termin_day{
+    color: var(--va-accent);
+}
+
+.termin.is_next .termin_countdown{
+    color: var(--va-accent);
+}
+
+@media (max-width: 1024px){
+    .termin{
+        grid-template-columns: 70px minmax(0, 1fr);
+        gap: 12px 28px;
+    }
+
+    .termin_meta{
+        grid-column: 2;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 4px 20px;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 640px){
+    .termin{
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 10px 18px;
+        padding: 26px 0;
+    }
+
+    .termin_day{
+        font-size: 32px;
+    }
+
+    .termin_title{
+        font-size: 21px;
+    }
+
+    .termin_desc{
+        font-size: 16px;
+    }
+
+    .termin.is_next::before{
+        left: -16px;
+        top: 26px;
+        bottom: 26px;
+    }
+}
+
+.archiv{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.archiv_item{
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) minmax(0, 420px);
+    gap: 40px;
+    align-items: start;
+    padding: 48px 0;
+    border-bottom: 1px solid var(--va-line);
+    scroll-margin-top: 90px;
+}
+
+.archiv_num{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 48px;
+    line-height: 1;
+    color: var(--va-accent);
+}
+
+.archiv_date{
+    font-family: var(--va-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--va-muted);
+}
+
+.archiv_topic{
+    font-family: LEMONMILK, sans-serif;
+    font-size: 15px;
+    font-weight: normal;
+    letter-spacing: 0.06em;
+    color: var(--va-ink);
+    margin: 18px 0 10px;
+}
+
+.archiv_question{
+    font-family: var(--va-serif);
+    font-size: 34px;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--va-ink);
+    margin: 0;
+}
+
+.archiv_speaker{
+    font-family: var(--va-serif);
+    font-style: italic;
+    font-size: 18px;
+    color: var(--va-muted);
+    margin: 14px 0 0;
+}
+
+.archiv_links{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px 32px;
+    margin-top: 28px;
+}
+
+.archiv_link{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: LEMONMILK, sans-serif;
+    font-size: 15px;
+    color: var(--va-ink);
     text-decoration: none;
-    font-family: LEMONMILK, entsans;
-    color: var(--black);
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--va-ink);
+    transition: color 0.2s, border-color 0.2s;
 }
 
-li:nth-child(even) {
-  color: var(--black);
+.archiv_link:hover,
+.archiv_link:focus-visible{
+    color: var(--va-accent);
+    border-color: var(--va-accent);
 }
 
-li:nth-child(odd) {
-  background-color: var(--black);
-  color: var(--white);
+.archiv_link svg{
+    width: 14px;
+    height: 14px;
+    flex: none;
 }
 
+.archiv_meta{
+    font-family: var(--va-mono);
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--va-muted);
+}
 
+.archiv_preview{
+    display: block;
+    background: #fff;
+    border: 1px solid var(--va-line);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+}
 
-.slide_content{
-    display:flex; 
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
+.archiv_preview:hover{
+    border-color: var(--va-accent);
+    transform: translateY(-2px);
+}
+
+.archiv_preview img{
+    display: block;
     width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
-.slide_content div{
-    margin: 2.5%;
-    filter: grayscale(60%);
-    transition: transform 0.1s ease-in-out;
+/* sanftes Einblenden beim Scrollen, nur wenn JS läuft */
+.js .archiv_item{
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.slide_content div:hover{
-    filter: grayscale(0%);
-    transform: scale(101%);
+.js .archiv_item.is_visible{
+    opacity: 1;
+    transform: none;
 }
 
-
-.calendar{
-  box-sizing:border-box;
-  width: 80vw;
-  background-color: #fff;
-  box-shadow: 0px 0px 35px -16px rgba(0,0,0,0.75);
-  font-family: 'Roboto', sans-serif;
-  padding: 20px 30px;
-  margin: 15px;
-  color:#363b41;
-  display: inline-block;
-}
-
-.calendar_header{
-  border-bottom: 2px solid rgba(0, 0, 0, 0.08);
-}
-
-.header_copy{
-  color: var(--gray);
-  font-size:20px;
-}
-.today{
-  box-sizing:border-box;
-  margin:20px 0 40px;
-}
-
-.current_day{
-  box-sizing:border-box;
-  width:100%;
-  height: 140px;
-  background-image: linear-gradient(-222deg, #5E2028, #810600);
-  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
-  padding:30px;
-  color:#fff;
-}
-
-.current_date{
-  box-sizing:border-box;
-  font-size:20px;
-  margin: 20px 0;
-  display: inline-block;
-}
-
-.big_dot{
-  box-sizing:border-box;
-  display: inline-block;
-  width: 10%;
-  height:10%;
-  border-radius:50%;
-  background-color: var(--white);
-  cursor: pointer;
-  margin:0 0 0 25px;
-  color: var(--ultra-white);
-  padding: 11px 13px;
-  position: relative;
-  left: 80vw;
-  top: 45%;
-  z-index: 2;
-}
-
-.calendar_events{
-  color: var(--gray);
-}
-
-.event_item{
-  margin: 18px 0;
-  padding:5px;
-  cursor: pointer;
-  &:hover{
-    background-image: linear-gradient(-222deg, #5E2028, #810600);
-    box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
-    .ei_Dot{
-      background-color: #fff;
+@media (prefers-reduced-motion: reduce){
+    .js .archiv_item{
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
-    .ei_discription,.ei_Title{
-      color:#fff;
+}
+
+@media (max-width: 1024px){
+    .archiv_item{
+        grid-template-columns: 70px minmax(0, 1fr);
+        gap: 28px;
     }
-  }
+
+    .archiv_preview{
+        grid-column: 2;
+        max-width: 520px;
+    }
+
+    .archiv_question{
+        font-size: 28px;
+    }
 }
 
-.ei_Dot,.ei_Title{
-  display:inline-block;
-}
+@media (max-width: 640px){
+    .veranstaltungen{
+        padding: 72px 16px 0;
+    }
 
-.ei_Dot{
-  border-radius:50%;
-  width:10px;
-  height: 10px;
-  background-color: var(--light-gray);
-  box-shadow: 0px 0px 52px -18px rgba(0, 0, 0, 0.75);
-}
-.dot_active{
-  background-color: #5E2028;
-}
+    .va_archiv{
+        margin: 56px -16px 0;
+        padding: 56px 16px 90px;
+    }
 
-.ei_Title{
-  margin-left:10px;
-  color:#363b41;
-}
+    .va_lead{
+        font-size: 18px;
+    }
 
-.ei_discription{
-  font-size:12px;
-  margin-left:27px;
+    .va_label{
+        margin-top: 56px;
+    }
+
+    .archiv_item{
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+        padding: 36px 0;
+    }
+
+    .archiv_preview{
+        grid-column: auto;
+    }
+
+    .archiv_num{
+        font-size: 32px;
+    }
+
+    .archiv_question{
+        font-size: 24px;
+    }
 }
 
 
@@ -1097,10 +1427,6 @@ li:nth-child(odd) {
         --veranstaltungen_header_font_size: 45px;
     }
 
-    .text p {
-    width: 60%;
-    }
-
     .text img {
      width: 40%;
     }
@@ -1132,9 +1458,7 @@ li:nth-child(odd) {
         --veranstaltungen_header_font_size: 35px;
     }
 
-        .text p {
-    width: 50%;
-    }
+ 
 
     .text img {
      width: 50%;
@@ -1198,13 +1522,6 @@ li:nth-child(odd) {
     }
 
 
-
-    .veranstaltung-wrapper{
-        width: 100%;
-        position: relative;
-    }
-
-
     .text img {
     width: 100%;
     border-radius: 8px;
@@ -1234,6 +1551,8 @@ li:nth-child(odd) {
 
     .inner_container{
        min-width: 80%;
+       max-width: 1100px;
+       margin: 0 auto;
        flex-direction: column;
     }
 
@@ -1318,6 +1637,8 @@ li:nth-child(odd) {
     }
 
     .inner_container{
+        max-width: 1100px;
+        margin: 0 auto;
         min-width: 90%;
         flex-direction: column;
 
@@ -1332,11 +1653,6 @@ li:nth-child(odd) {
         height: 100vh;
         overflow: hidden;
     }
-
-    .calendar{
-        width: 100%;
-        margin: 0;
-    }   
 
     :root{
         --black: #010101;
