@@ -65,8 +65,7 @@ function grow_function(value, start, range){
 }
 
 //scroll events
-//updates the schriftzug animation, also called on resize so both use the same calculation
-function updateSchriftzug() {
+window.addEventListener('scroll', ()=> {
     let value = window.scrollY;
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
@@ -219,9 +218,7 @@ function updateSchriftzug() {
         */
     }
 
-}
-
-window.addEventListener('scroll', updateSchriftzug);
+});
 
 
 //Click event for socials 
@@ -258,7 +255,33 @@ projekt_ausklapp_button.addEventListener('click', ()=>{
 });
 
 //Resize event
-window.addEventListener('resize', updateSchriftzug);
+window.addEventListener('resize', ()=> {
+    let value = window.scrollY;
+
+    var schriftzug_margin = Number(styleRoot.getPropertyValue('--schriftzug_margin'));
+
+    schriftzug.style.marginLeft = -schriftzug_margin * (value/400) + '%';
+
+    var SSF_initial_height = styleRoot.getPropertyValue('--SSF_initial_height');
+    SSF_initial_height = Number(SSF_initial_height.substring(0, SSF_initial_height.length -2));
+     var height = SSF_initial_height * ( (1 - value/400)+ 1/5 * (value/400)) +'px';
+     styleElem.setProperty('--height',  height);
+
+    var schriftzug_size = styleRoot.getPropertyValue('--schriftzug-size');
+     schriftzug_size = Number( schriftzug_size.substring(0, schriftzug_size.length - 2));
+
+     schriftzug_font_big1.style.fontSize = schriftzug_size * ((1 - value/400) + 1/5 * (value/400)) + 'px';
+     schriftzug_font_small.style.fontSize = (schriftzug_size * ((1 - value/400) + 1/5 * (value/400))) / 4.5 + 'px';
+     schriftzug_font_big2.style.fontSize = schriftzug_size * ((1 -value/400) + 1/5 * (value/400)) + 'px';
+
+     var margin = styleRoot.getPropertyValue('--margin-schriftzug');
+     margin = Number(margin.substring(0, margin.length - 2));
+
+     schriftzug_font_big1.style.margin = margin *((1 - value/400)+ 1/5 * (value/400))+ 'px';
+     schriftzug_font_small.style.margin = margin *((1 - value/400) + 1/5 * (value/400))+ 'px';
+     schriftzug_font_big2.style.margin = margin *((1 - value/400) + 1/5 * (value/400))+ 'px';
+
+});
 
 //upcoming events: hide past ones, mark the next one, show a countdown
 const vaToday = document.getElementById('va_today');
