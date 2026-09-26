@@ -549,7 +549,7 @@ header{
 
 .team_label{
     font-family: LEMONMILK, sans-serif;
-    font-size: 14px;
+    font-size: 20px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--white);
@@ -575,7 +575,7 @@ header{
 }
 
 .team_grid{
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .member{
