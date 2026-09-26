@@ -34,10 +34,10 @@ var styleElem = document.querySelector('.schriftzug_font_small').style;
 var styleSocials = document.querySelector('.socials').style;
 var stylesocials_button = document.querySelector('.socials_button').style;
 var styleschriftzug_tiny = document.querySelector('.schriftzug_tiny').style;
-var styleProjektliste = document.querySelector('.projektliste').style;
-var styleSocialsProjektliste = document.querySelector('.socials_projektliste').style;
-var styleProjektlisteAusklappButton = document.querySelector('.socials_projektliste_ausklappen').style;
-var styleAusklappButton = document.querySelector('.ausklapp_button').style;
+var projektliste = document.querySelector('.projektliste');
+var socialsProjektliste = document.querySelector('.socials_projektliste');
+var socialsChevron = document.querySelector('.socials_projektliste_ausklappen');
+var navChevron = document.querySelector('.ausklapp_button');
 var stylePicture = document.querySelector('.picture').style;
 
 var styleRoot = getComputedStyle(document.body);
@@ -241,46 +241,24 @@ socials_button.addEventListener('click', ()=> {
 var socials_projektliste_ausgeklappt = false;
 
 socials_projektliste_ausklappen.addEventListener('click', () => {
-   if(socials_projektliste_ausgeklappt == false){
-    socials_projektliste_ausgeklappt = true;
-    styleSocialsProjektliste.setProperty('--socials_projektliste', 'flex');
-    styleProjektlisteAusklappButton.setProperty('--projektliste_rotation_degree', '180deg');
-   }else{
-    socials_projektliste_ausgeklappt = false;
-    styleSocialsProjektliste.setProperty('--socials_projektliste', 'none');
-    styleProjektlisteAusklappButton.setProperty('--projektliste_rotation_degree', '0deg');
-   }
+    socials_projektliste_ausgeklappt = !socials_projektliste_ausgeklappt;
+    socialsProjektliste.classList.toggle('is_open', socials_projektliste_ausgeklappt);
+    socialsChevron.classList.toggle('is_open', socials_projektliste_ausgeklappt);
+    socials_projektliste_ausklappen.setAttribute('aria-expanded', socials_projektliste_ausgeklappt);
 });
 
 //Click event for projects
 var project_ausgeklappt = false;
 
 projekt_ausklapp_button.addEventListener('click', ()=>{
-    if (project_ausgeklappt == false ){
-        project_ausgeklappt = true;
-        styleProjektliste.setProperty('--projektliste', 'initial');
-        styleAusklappButton.setProperty('--rotation_degree', '180deg');
-    }else{
-        project_ausgeklappt = false;
-        styleProjektliste.setProperty('--projektliste', 'none');
-        styleAusklappButton.setProperty('--rotation_degree', '0deg');
-        
-
-    }
+    project_ausgeklappt = !project_ausgeklappt;
+    projektliste.classList.toggle('is_open', project_ausgeklappt);
+    navChevron.classList.toggle('is_open', project_ausgeklappt);
+    projekt_ausklapp_button.setAttribute('aria-expanded', project_ausgeklappt);
 });
 
 //Resize event
-window.addEventListener('resize', ()=> {
-    if(window.innerWidth <= 640){
-        styleProjektliste.setProperty('--projektliste', 'none');
-    }else {
-        if(project_ausgeklappt == true){
-        styleProjektliste.setProperty('--projektliste', 'initial');
-        }
-    }
-
-    updateSchriftzug();
-});
+window.addEventListener('resize', updateSchriftzug);
 
 //upcoming events: hide past ones, mark the next one, show a countdown
 const vaToday = document.getElementById('va_today');

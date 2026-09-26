@@ -27,7 +27,7 @@
         <nav class="navigation">
             <a href="#bottom" style="margin-left: 0px;">Mitgliedschaft</a>
             <a href="#bottom">Kontakt</a>
-            <a  id="ausklapp_button" style="margin-right: 20px;"> <img class="ausklapp_button"  src="media/ausklapp_button2.png" >Themen</a>
+            <a  id="ausklapp_button" style="margin-right: 20px;" role="button" aria-expanded="false">Themen<span class="chevron ausklapp_button" aria-hidden="true"></span></a>
         </nav>
     </header>
 
@@ -35,18 +35,20 @@
         <div class="nav_in_socials">
             <a href="#bottom" ><div class="socials_div">Mitgliedschaft</div></a>
             <a href="#bottom"><div class="socials_div">Kontakt</div></a>
-            <div id="socials_projektliste_ausklappen" class="socials_div">Themen<img class="socials_projektliste_ausklappen"  src="media/ausklapp_button2.png"></div>
+            <div id="socials_projektliste_ausklappen" class="socials_div" role="button" aria-expanded="false">Themen<span class="chevron socials_projektliste_ausklappen" aria-hidden="true"></span></div>
             <div id="socials_projektliste" class="socials_projektliste">
-                <a href="#Thema1"><div class="socials_div">Aktienrente</div></a>
-                <a href="#Thema2"><div class="socials_div">Deutsche Bahn</div></a>
-                <a href="#Thema3"><div class="socials_div">Gesundheitssystem</div></a>
-                <a href="#Thema4"><div class="socials_div">Rentensystem</div></a>
-                <a href="#Thema5"><div class="socials_div">Wohnungskrise</div></a>
+                <div class="socials_projektliste_inner">
+                    <a href="#Thema1"><div class="socials_div">Aktienrente</div></a>
+                    <a href="#Thema2"><div class="socials_div">Deutsche Bahn</div></a>
+                    <a href="#Thema3"><div class="socials_div">Gesundheitssystem</div></a>
+                    <a href="#Thema4"><div class="socials_div">Rentensystem</div></a>
+                    <a href="#Thema5"><div class="socials_div">Wohnungskrise</div></a>
+                </div>
             </div>
         </div> 
-        <a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ=="><div class="socials_div"><img class="socials4" src="media/instagram_white.png"> instagram</div></a>
-        <a href="https://www.linkedin.com/company/agora-ppe-network/"><div class="socials_div"> <img class="socials4" src="media/linkedin_white.png"> linkedin</div></a>
-        <a href="https://discord.com/invite/gseMFZhj"><div class="socials_div"> <img class="socials4" src="media/discord_white.png"> discord</div></a>
+        <a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ=="><div class="socials_div"><img class="socials4" src="media/instagram_white.png"> <div style="margin-left: 10px;">instagram</div></div></a>
+        <a href="https://www.linkedin.com/company/agora-ppe-network/"><div class="socials_div"> <img class="socials4" src="media/linkedin_white.png"><div style="margin-left: 10px;">linkedin</div></div></a>
+        <a href="https://discord.com/invite/gseMFZhj"><div class="socials_div"> <img class="socials4" src="media/discord_white.png"> <div style="margin-left: 10px;">discord</div></div></a>
     </div>
     <div class="projektliste">
         <a href="#Thema1"><div>Aktienrente</div></a>
@@ -82,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- PLATZHALTER: Fotos (src), Namen und Studiengänge durch echte Angaben ersetzen -->
             <div class="team">
 
                 <div class="team_label">Unser Vorstandsteam</div>
@@ -159,7 +160,6 @@
 
     <div class="content">
         <div class="content_inner">
-            <!-- PLATZHALTER-BILDER: src der vier Bilder durch passende Fotos ersetzen -->
             <article class="text-block">
                 <div class="text-block_body">
                     <div class="text-block_label">01 · Über uns</div>
@@ -173,7 +173,7 @@
                     </div>
                 </div>
                 <figure class="text-block_media">
-                    <img src="media/vorstandsBilder/Aljoscha_Schmüser.png" alt="" loading="lazy">
+                    <img src="media/ZweckInitiative.jpeg" alt="" loading="lazy">
                 </figure>
             </article>
 
@@ -190,7 +190,7 @@
                     </div>
                 </div>
                 <figure class="text-block_media">
-                    <img src="media/vorstandsBilder/Aljoscha_Schmüser.png" alt="" loading="lazy">
+                    <img src="media/Aktivitäten.jpg" alt="" loading="lazy">
                 </figure>
             </article>
 
@@ -208,7 +208,7 @@
                     </div>
                 </div>
                 <figure class="text-block_media">
-                    <img src="media/vorstandsBilder/Aljoscha_Schmüser.png" alt="" loading="lazy">
+                    <img src="media/VorstellungAgora.jpg" alt="" loading="lazy">
                 </figure>
             </article>
 
@@ -245,9 +245,6 @@
                 <span>Nächste Termine · Wintersemester 2026/27</span>
                 <span id="va_today"></span>
             </div>
-            <!-- BEISPIELTERMINE: vor dem Veröffentlichen durch echte Termine ersetzen.
-                 Neuer Termin: einen <li class="termin"> kopieren und data-date (JJJJ-MM-TT), datetime, Tag, Monat und Texte anpassen.
-                 Vergangene Termine werden automatisch ausgeblendet, der nächste wird hervorgehoben. -->
             <ol class="termine">
                 <li class="termin" data-date="2026-10-20">
                     <time class="termin_date" datetime="2026-10-20T19:00">
@@ -333,7 +330,6 @@
             <div class="va_label va_label_split">
                 <span>Archiv · Sommersemester 2026</span>
             </div>
-            <!-- Nach einem Abend: Eintrag oben in diese Liste kopieren, Nummer, Datum, Texte und PDF-Links anpassen. -->
             <ol class="archiv">
 
                 <li class="archiv_item" id="Thema5">
@@ -448,32 +444,40 @@
         </div>
     </section>
 
-    <div class="container" style="margin-top: 74px; margin-bottom: 50px;">
+    <div class="cta cta_social">
         <div class="inner_container">
             <div class="intro">
-                <h2 class="intro_header" >Social Media </h2>
-                <div  style="margin-left: 0px;">
-                   Weitere Informationen zu Veranstaltungen und Aktivitäten posten wir regelmäßig auf unseren Social-Media-Kanälen.  Bei Interesse freuen wir uns über eine Kontaktaufnahme und neue Mitwirkende.
+                <h2 class="intro_header">Social Media</h2>
+                <div class="social_media">
+                   Weitere Informationen zu Veranstaltungen und Aktivitäten posten wir regelmäßig auf unseren Social-Media-Kanälen.
                 </div>
             </div>
             <div class="socials2">
-                <img  class="profile" src="media/LinkedInPage.png">
-                <div style="display: flex; flex-direction: row; align-items: center;">
-                    <div><a href="mailto:agora.network@outlook.com"><img class="socials3" src="media/mail.png"></a></div>
-                    <div><a href="https://www.linkedin.com/company/agora-ppe-network/"><img class="socials3" src="media/linkedin.png"></a> </div>
-                    <div><a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ=="><img class="socials3" src="media/instagram.png"></a> </div>
-                    <div><a href="https://discord.com/invite/gseMFZhj"><img class="socials3" src="media/discord.png"></a> </div>
+                <img class="profile" src="media/LinkedInPage.png" alt="LinkedIn-Seite von Agora - PPE Network" loading="lazy">
+                <div class="socials_row">
+                    <a href="mailto:agora.network@outlook.com" aria-label="E-Mail"><img class="socials3" src="media/mail.png" alt=""></a>
+                    <a href="https://www.linkedin.com/company/agora-ppe-network/" aria-label="LinkedIn"><img class="socials3" src="media/linkedin.png" alt=""></a>
+                    <a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ==" aria-label="Instagram"><img class="socials3" src="media/instagram.png" alt=""></a>
+                    <a href="https://discord.com/invite/gseMFZhj" aria-label="Discord"><img class="socials3" src="media/discord.png" alt=""></a>
                 </div>
             </div>
         </div>
     </div>
-    <div class="mitgliederantrag_wrapper">
-        <div class="mitgliederantrag">
-            <h1> Downloade hier den Mitgliederantrag: </h1>       
-            <a class="mitgliederantrag_download_button" href="media/Mitgliederantrag_Agora_PPE_Network.pdf" download>
-                <h1>Download</h1>
-                <img src="media/download_button2.png" >
-            </a>
+    <div class="cta cta_member">
+        <div class="inner_container">
+            <div class="intro">
+                <h2 class="intro_header">Werde Mitglied</h2>
+                <div class="social_media">
+                    Bei Interesse freuen wir uns über eine Kontaktaufnahme und neue Mitwirkende.
+                </div>
+            </div>
+            <div class="mitgliederantrag">
+                <h1>Downloade hier den Mitgliederantrag:</h1>
+                <a class="mitgliederantrag_download_button" href="media/Mitgliederantrag_Agora_PPE_Network.pdf" download>
+                    <h1>Download</h1>
+                    <img src="media/download_button2.png" alt="">
+                </a>
+            </div>
         </div>
     </div>
 
