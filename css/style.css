@@ -728,6 +728,11 @@ header{
     text-align: center;
 }
 
+.member a{
+    text-decoration: none;
+    color: var(--white);
+}
+
 .team .profile{
     display: block;
     width: 100%;
@@ -970,8 +975,8 @@ header{
 }
 
 .picture{
-    background-image: url('/media/BackgroundImagev4.jpg');
-    filter: grayscale(60%);
+    background-image: url('/media/BackgroundImagev3.jpg');
+    filter: grayscale(10%);
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -1013,7 +1018,6 @@ header{
     justify-content: center;
     align-items: center;
     color: var(--white);
-    font-family: Baskerville, Georgia, serif;
     font-size: var(--download_button_font_size);
     border: 2px solid var(--white);
     border-radius: 20px;
@@ -1026,7 +1030,7 @@ header{
 .mitgliederantrag h1{
     text-align: center;
     font-size: var(--download_button_font_size);
-    font-family: var(--va-serif);
+    font-family: LEMONMILK, sans-serif;;
 }
 
 .mitgliederantrag_download_button{
@@ -1059,11 +1063,7 @@ header{
     margin-left: 20px;
 }
 
-/* --------------------------------
-   SOCIAL MEDIA & WERDE MITGLIED
-   Regeln gelten nur innerhalb von .cta, damit Intro und Impressum
-   (die dieselben Klassen nutzen) unverändert bleiben.
--------------------------------- */
+
 
 .cta{
     background-color: var(--black);
@@ -1844,6 +1844,7 @@ header{
 
     .picture{
         background-image: url('/media/BackgroundImagev3.jpg');
+        filter: grayscale(90%);
         background-size: cover;
         background-position:bottom;
         bottom: 10px;
