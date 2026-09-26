@@ -976,7 +976,7 @@ header{
 
 .picture{
     background-image: url('/media/BackgroundImagev3.jpg');
-    filter: grayscale(10%);
+    filter: grayscale(0%);
     background-size: cover;
     background-position: center;
     position: absolute;
@@ -1844,7 +1844,7 @@ header{
 
     .picture{
         background-image: url('/media/BackgroundImagev3.jpg');
-        filter: grayscale(90%);
+        filter: grayscale(0%);
         background-size: cover;
         background-position:bottom;
         bottom: 10px;
