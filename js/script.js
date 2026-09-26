@@ -320,7 +320,7 @@ const archivObserver = new IntersectionObserver((entries) => {
     })
 }, { rootMargin: '0px 0px -10% 0px' });
 
-document.querySelectorAll('.archiv_item').forEach((element) => archivObserver.observe(element));
+document.querySelectorAll('.archiv_item, .text-block').forEach((element) => archivObserver.observe(element));
 
 //Mouse move effect 
 /*

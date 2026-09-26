@@ -372,136 +372,155 @@ header{
     width: 80%;
 }  
 
+/* --------------------------------
+   TEXTBLÖCKE (gleiche Gestaltung wie der Veranstaltungsbereich)
+-------------------------------- */
+
 .content {
+    --tb-ink: #111111;
+    --tb-text: #2F3437;
+    --tb-line: rgba(0, 0, 0, 0.1);
+    --tb-accent: #5E2028;
+    --tb-mono: 'SF Mono', Consolas, 'Courier New', monospace;
+
     position: relative;
-
-    padding: 70px 20px 90px;
-
-    background: #d4d4d8;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    gap: 45px;
+    background: #EFEDE8;
+    padding: 120px 24px;
 }
 
+.content_inner {
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-/* --------------------------------
-   TEXT BLOCK
--------------------------------- */
-/* --------------------------------
-   ÜBERSCHRIFT
--------------------------------- */
+/* Text links, Bild rechts; jeder zweite Block spiegelt das */
+.text-block {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 64px;
+    align-items: center;
+    padding: 64px 0;
+    border-top: 1px solid var(--tb-line);
+}
+
+.text-block:first-child {
+    border-top-color: var(--tb-ink);
+}
+
+.text-block:nth-child(even) {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+}
+
+.text-block:nth-child(even) .text-block_media {
+    order: -1;
+}
+
+.text-block_label {
+    font-family: var(--tb-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--tb-accent);
+    margin-bottom: 18px;
+}
 
 .text_header {
     font-family: LEMONMILK, Baskerville, serif;
-
-    font-size: var(--text_header_font_size);
-
+    font-size: clamp(28px, 3.2vw, 44px);
     font-weight: bold;
-
-    line-height: 1.2;
-
-    color: var(--black);
-
-    margin: 0 0 28px;
-
-    padding: 0;
-
-    max-width: 100%;
-
-    background: transparent;
-
-    border-radius: 0;
+    line-height: 1.15;
+    color: var(--tb-ink);
+    margin: 0 0 24px;
 }
-
-
-.text-block {
-    position: relative;
-
-    width: min(850px, 90%);
-
-    padding: 38px 45px 42px;
-
-    background: var(--ultra-white);
-    color: var(--black);
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 8px 25px rgba(0, 0, 0, 0.08);
-
-    border: 1px solid rgba(0, 0, 0, 0.04);
-
-    overflow: hidden;
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease;
-}
-
-.text-block:hover {
-    transform: translateY(-3px);
-
-    box-shadow:
-        0 12px 30px rgba(0, 0, 0, 0.12);
-}
-
-
-/* Akzentlinie links */
-
-.text-block::before {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    top: 0;
-    bottom: 0;
-
-    width: 5px;
-
-    background: var(--black);
-}
-
-
-/* --------------------------------
-   TEXT
--------------------------------- */
 
 .text {
-    display: block;
-
     font-family: Baskerville, Georgia, serif;
-
-    font-size: 21px;
-
+    font-size: 19px;
     line-height: 1.7;
-
-    color: var(--black);
+    color: var(--tb-text);
+    max-width: 62ch;
 }
-
-
-
-/* einzelne Absätze */
 
 .text p {
-    margin: 0 0 20px;
+    margin: 0 0 18px;
 }
-
-
-/* letzter Absatz braucht keinen Abstand */
 
 .text p:last-child {
     margin-bottom: 0;
 }
 
-.text img {
-  width: 25%;
-  margin: 10px;
-  border-radius: 8px;
-  height: auto;
+.text-block_media {
+    margin: 0;
+}
+
+.text-block_media img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 30%;
+    background: #fff;
+    border: 1px solid var(--tb-line);
+    border-radius: 4px;
+}
+
+/* sanftes Einblenden beim Scrollen, wie im Archiv */
+.js .text-block {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.js .text-block.is_visible {
+    opacity: 1;
+    transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .js .text-block {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    .text-block,
+    .text-block:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 40px;
+    }
+
+    .text {
+        font-size: 18px;
+    }
+}
+
+/* einspaltig: Bild oben, Text darunter */
+@media (max-width: 768px) {
+    .content {
+        padding: 72px 16px;
+    }
+
+    .text-block,
+    .text-block:nth-child(even) {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 28px;
+        padding: 48px 0;
+    }
+
+    .text-block .text-block_media {
+        order: -1;
+    }
+
+    .text-block_media img {
+        aspect-ratio: 16 / 10;
+    }
+
+    .text {
+        font-size: 17px;
+        line-height: 1.65;
+    }
 }
 
 .container{
@@ -1428,14 +1447,6 @@ header{
         --veranstaltungen_header_font_size: 45px;
     }
 
-    .text img {
-     width: 40%;
-    }
-    
-      .text-block {
-    width: 80%;
-     }
-
 }
 
 /*xl*/
@@ -1459,11 +1470,6 @@ header{
         --veranstaltungen_header_font_size: 35px;
     }
 
- 
-
-    .text img {
-     width: 50%;
-    }
 }
   
 
@@ -1498,37 +1504,6 @@ header{
         --text_header_font_size: 60px;
     }
 
-    
-
-  .content {
-        padding: 55px 20px 70px;
-        gap: 30px;
-    }
-
-    .text-block {
-        width: min(90%, 700px);
-
-        padding: 30px 32px 34px;
-    }
-
-    .text_header {
-        font-size: calc(var(--text_header_font_size) * 0.85);
-
-        margin-bottom: 22px;
-    }
-
-    .text {
-        font-size: 19px;
-        line-height: 1.65;
-    }
-
-
-    .text img {
-    width: 100%;
-    border-radius: 8px;
-    height: fit-content;
-    }
-
 }
 
 /*md*/
@@ -1537,11 +1512,6 @@ header{
         min-width: 640px;
     }
 
-    .content {
-    padding: 20px;
-    gap: 20px;
-    }
-    
     .socials2{
         width: 100%;
     }
@@ -1575,45 +1545,6 @@ header{
 
     }
 
-    .content {
-        padding: 35px 12px 50px;
-        gap: 22px;
-    }
-
-    .text-block {
-        width: 100%;
-
-        padding: 25px 22px 28px;
-
-        border-radius: 10px;
-    }
-
-    .text-block::before {
-        width: 4px;
-    }
-
-    .text_header {
-        font-size: 24px;
-
-        line-height: 1.25;
-
-        margin-bottom: 18px;
-    }
-
-    .text {
-        font-size: 17px;
-        line-height: 1.6;
-    }
-
-    .text p {
-        margin-bottom: 16px;
-    }
-
-    .text img {
-    width: 100%;
-    border-radius: 8px;
-    height: fit-content;
-    }
 }
 
 /*sm*/
