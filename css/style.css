@@ -81,7 +81,7 @@ header{
 .socials a{
     text-decoration: none;
     color: var(--white);
-    font-family: LEMONMILK, Arial;
+    font-family: 'Bebas Neue', Arial;
     font-size: 30px;
 }
 
@@ -103,7 +103,7 @@ header{
     z-index: 99;
     text-decoration: none;
     color: var(--white);
-    font-family: LEMONMILK, Arial;
+    font-family: 'Bebas Neue', Arial;
     font-size: 30px;
 }
 
@@ -178,7 +178,7 @@ header{
     display: block;
     text-decoration: none;
     color: var(--white);
-    font-family: LEMONMILK, Arial;
+    font-family: 'Bebas Neue', Arial;
     font-size: 30px;
     opacity: 0;
     transform: translateY(-6px);
@@ -270,7 +270,7 @@ header{
 .navigation a{
     display: var(--nav_display);
     position: relative;
-    font-family: LEMONMILK, Arial;
+    font-family: 'Bebas Neue', Arial;
     font-size: 1.2em;
     font-weight: 700;
     margin-left: 50px;
@@ -427,7 +427,7 @@ header{
     height: 100vh; /*<--- is das gut??*/
     z-index: 96;
     user-select: none;
-    font-family: LEMONMILK, Baskerville;
+    font-family: 'Bebas Neue', Baskerville;
     color: var(--ultra-white);
     line-height: 0%;
     font-size: var(--schriftzug-size);
@@ -470,7 +470,7 @@ header{
     width: 230px;
     z-index: 96;
     user-select: none;
-    font-family:  LEMONMILK, Baskerville;
+    font-family:  'Bebas Neue', Baskerville;
     color: var(--white);
     line-height: 0%;
     font-size: 27px;
@@ -551,7 +551,7 @@ header{
 }
 
 .text_header {
-    font-family: LEMONMILK, Baskerville, serif;
+    font-family: 'Bebas Neue', Baskerville, serif;
     font-size: clamp(28px, 3.2vw, 44px);
     font-weight: bold;
     line-height: 1.15;
@@ -670,7 +670,7 @@ header{
     max-width: 80%;
     margin-left: auto;
     margin-right: auto;
-    font-family: LEMONMILK, entsans, Baskerville ;
+    font-family: 'Bebas Neue', entsans, Baskerville ;
     color: var(--white);
 }
 
@@ -693,7 +693,7 @@ header{
 }
 
 .team_label{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 30px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -749,13 +749,13 @@ header{
 }
 
 .member_name{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 20px;
     color: var(--ultra-white);
 }
 
 .member_role{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 13px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
@@ -847,7 +847,7 @@ header{
     margin: auto;
     width: 80%;
     color: var(--white);
-    font-family: LEMONMILK, entsans ,Baskerville;
+    font-family: 'Bebas Neue', entsans ,Baskerville;
     font-size: var(--projecttitle-size);
     top: 15%;
     z-index: 1;
@@ -873,7 +873,7 @@ header{
 
 .intro{
     color: var(--white);
-    font-family: LEMONMILK, Arial;
+    font-family: 'Bebas Neue', Arial;
     font-size: var(--intro-size);
     font-weight: 700;
     width: 50%;
@@ -887,7 +887,7 @@ header{
 .intro_header{
     margin-top: 0px;
     font-size: var(--intro_header); 
-    font-family: LEMONMILK, entsans;
+    font-family: 'Bebas Neue', entsans;
 }
 
 .profile{
@@ -926,7 +926,7 @@ header{
     width: 100%;
     z-index: 5;
     background-color: var(--black);
-    font-family: LEMONMILK, entsans;
+    font-family: 'Bebas Neue', entsans;
 }
 
 .project_buffer{
@@ -1030,7 +1030,7 @@ header{
 .mitgliederantrag h1{
     text-align: center;
     font-size: var(--download_button_font_size);
-    font-family: LEMONMILK, sans-serif;;
+    font-family: 'Bebas Neue', sans-serif;;
 }
 
 .mitgliederantrag_download_button{
@@ -1054,7 +1054,7 @@ header{
 .mitgliederantrag_download_button h1{
     color: var(--white);
     font-size: var(--download_button_font_size);
-    font-family: LEMONMILK, entsans;
+    font-family: 'Bebas Neue', entsans;
 }
 
 .mitgliederantrag_download_button img{
@@ -1250,7 +1250,7 @@ header{
 }
 
 .va_title{
-    font-family: LEMONMILK, Baskerville, serif;
+    font-family: 'Bebas Neue', Baskerville, serif;
     font-size: var(--text_header_font_size);
     font-weight: bold;
     line-height: 1.1;
@@ -1328,7 +1328,7 @@ header{
 }
 
 .termin_day{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 48px;
     line-height: 1;
     color: var(--va-ink);
@@ -1467,7 +1467,7 @@ header{
 }
 
 .archiv_num{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 48px;
     line-height: 1;
     color: var(--va-accent);
@@ -1482,7 +1482,7 @@ header{
 }
 
 .archiv_topic{
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 15px;
     font-weight: normal;
     letter-spacing: 0.06em;
@@ -1518,7 +1518,7 @@ header{
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-family: LEMONMILK, sans-serif;
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 15px;
     color: var(--va-ink);
     text-decoration: none;
@@ -1937,9 +1937,12 @@ header{
     font-style: normal;
 }
 
+/* Bebas Neue gibt es nur in einer Stärke. Der Bereich 100-900 sorgt dafür,
+   dass Regeln mit font-weight: bold/900 diese Datei nutzen, statt sie künstlich fett zu rechnen. */
 @font-face{
-    font-family: 'LEMONMILK';
-    src: url('/media/LEMONMILK/LEMONMILK-Light.otf') format('opentype');
-    font-weight: normal;
+    font-family: 'Bebas Neue';
+    src: url('/media/BebasNeue/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: 100 900;
     font-style: normal;
+    font-display: swap;
 }
