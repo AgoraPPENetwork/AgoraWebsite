@@ -588,6 +588,7 @@ header{
     width: 100%;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+    border-radius: 100px;
 }
 
 .member figcaption{
@@ -625,11 +626,11 @@ header{
     }
 
     .team .profile{
-        border-radius: 28px;
+        border-radius: 100px;
     }
 
     .member_name{
-        font-size: 17px;
+        font-size: 12px;
     }
 
     .member_study{
