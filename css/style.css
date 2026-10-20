@@ -1310,7 +1310,7 @@ header{
 .termin{
     position: relative;
     display: grid;
-    grid-template-columns: 90px minmax(0, 1fr) 200px;
+    grid-template-columns: 90px minmax(0, 1fr) 200px 170px;
     gap: 40px;
     align-items: start;
     padding: 32px 0;
@@ -1390,6 +1390,35 @@ header{
     display: none;
 }
 
+/* Anmelde-Button (leere .termin_action hält bei den anderen Terminen den Platz frei) */
+.termin_action{
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 2px;
+}
+
+.termin_button{
+    display: inline-block;
+    font-family: var(--va-mono);
+    font-size: 15px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+    white-space: nowrap;
+    color: #FFFFFF;
+    background: var(--va-accent);
+    border: 1px solid var(--va-accent);
+    border-radius: 9999px;
+    padding: 14px 28px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.termin_button:hover,
+.termin_button:focus-visible{
+    background: transparent;
+    color: var(--va-accent);
+}
+
 /* hervorgehobener nächster Termin */
 .termin.is_next::before{
     content: "";
@@ -1421,6 +1450,16 @@ header{
         flex-wrap: wrap;
         gap: 4px 20px;
         padding-top: 0;
+    }
+
+    .termin_action{
+        grid-column: 2;
+        justify-content: flex-start;
+        padding-top: 14px;
+    }
+
+    .termin_action:empty{
+        display: none;
     }
 }
 
