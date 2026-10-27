@@ -1310,7 +1310,7 @@ header{
 .termin{
     position: relative;
     display: grid;
-    grid-template-columns: 90px minmax(0, 1fr) 200px 170px;
+    grid-template-columns: 90px minmax(0, 1fr) 200px 220px;
     gap: 40px;
     align-items: start;
     padding: 32px 0;
@@ -1394,6 +1394,8 @@ header{
 .termin_action{
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
     padding-top: 2px;
 }
 
@@ -1417,6 +1419,29 @@ header{
 .termin_button:focus-visible{
     background: transparent;
     color: var(--va-accent);
+}
+
+/* runder Kalender-Button: umgekehrt, erst Outline, beim Hover gefüllt */
+.termin_button_icon{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    background: transparent;
+    color: var(--va-accent);
+}
+
+.termin_button_icon svg{
+    width: 22px;
+    height: 22px;
+}
+
+.termin_button_icon:hover,
+.termin_button_icon:focus-visible{
+    background: var(--va-accent);
+    color: #FFFFFF;
 }
 
 /* hervorgehobener nächster Termin */
