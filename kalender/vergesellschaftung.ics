@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Agora PPE Network//Veranstaltungen//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:vergesellschaftung-20261110-1900@agora-ppe-network.de
+DTSTAMP:20261027T120000Z
+DTSTART:20261110T180000Z
+DTEND:20261110T200000Z
+SUMMARY:Vergesellschaftung
+LOCATION:Campus Westend
+DESCRIPTION:Diskussionsabend von Agora - PPE Network: Ist die Vergesellscha
+ ftung von Wohnungskonzernen eine sinnvolle Lösung, und was ist eigentlich
+  der Unterschied zur Enteignung?
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Agora PPE Network//Veranstaltungen//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:grundsicherungsgeld-20261124-1900@agora-ppe-network.de
+DTSTAMP:20261027T120000Z
+DTSTART:20261124T180000Z
+DTEND:20261124T200000Z
+SUMMARY:Grundsicherungsgeld statt Bürgergeld
+LOCATION:Campus Westend
+DESCRIPTION:Diskussionsabend von Agora - PPE Network: Ist die Reform zum Gr
+ undsicherungsgeld sinnvolle Arbeitsmarktpolitik oder Populismus auf dem R
+ ücken der Schwächsten?
+END:VEVENT
+END:VCALENDAR
