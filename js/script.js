@@ -290,12 +290,14 @@ today.setHours(0, 0, 0, 0);
 vaToday.textContent = 'Heute: ' + today.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
 
 let upcomingCount = 0;
+const pastTermine = [];
 document.querySelectorAll('.termin').forEach((termin) => {
     const date = new Date(termin.dataset.date + 'T00:00:00');
     const days = Math.round((date - today) / 86400000);
 
     if (days < 0) {
         termin.hidden = true;
+        pastTermine.push(termin);
         return;
     }
 
@@ -310,6 +312,115 @@ document.querySelectorAll('.termin').forEach((termin) => {
 if (upcomingCount === 0) {
     document.querySelector('.termine_empty').hidden = false;
 }
+
+//past events move into the archive automatically; slides appear once media/presentations/<data-slug>.pdf exists
+const archivInner = document.querySelector('.va_archiv .va_inner');
+const downloadIcon = '<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1v10M3.5 6.5 8 11l4.5-4.5M2 14.5h12" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>';
+const placeholderSrc = 'media/presentations/platzhalter.jpg';
+let archivCount = Math.max(0, ...Array.from(document.querySelectorAll('.archiv_num'), (num) => Number(num.textContent)));
+
+function semesterOf(date) {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    if (month >= 4 && month <= 9) {
+        return 'Sommersemester ' + year;
+    }
+    const start = month >= 10 ? year : year - 1;
+    return 'Wintersemester ' + start + '/' + String(start + 1).slice(2);
+}
+
+//list for the semester, a new semester group goes on top
+function archivList(semester) {
+    let list = archivInner.querySelector('.archiv[data-semester="' + semester + '"]');
+    if (list) {
+        return list;
+    }
+    const label = document.createElement('div');
+    label.className = 'va_label va_label_split';
+    label.innerHTML = '<span></span>';
+    label.firstChild.textContent = 'Archiv · ' + semester;
+    list = document.createElement('ol');
+    list.className = 'archiv';
+    list.dataset.semester = semester;
+    const firstLabel = archivInner.querySelector('.va_label');
+    archivInner.insertBefore(label, firstLabel);
+    archivInner.insertBefore(list, firstLabel);
+    return list;
+}
+
+//resolves to the HEAD response if the file exists, otherwise null
+function fileExists(url) {
+    return fetch(url, { method: 'HEAD', cache: 'no-cache' })
+        .then((response) => response.ok ? response : null)
+        .catch(() => null);
+}
+
+async function addSlides(item, slug) {
+    const pdf = 'media/presentations/' + slug + '.pdf';
+    const pdfResponse = await fileExists(pdf);
+    if (!pdfResponse) {
+        return;
+    }
+
+    const size = Number(pdfResponse.headers.get('Content-Length'));
+    const link = document.createElement('a');
+    link.className = 'archiv_link';
+    link.href = pdf;
+    link.target = '_blank';
+    link.rel = 'noopener';
+    link.innerHTML = downloadIcon + ' Folien <span class="archiv_meta">PDF'
+        + (size ? ' · ' + (size / 1048576).toFixed(1).replace('.', ',') + ' MB' : '') + '</span>';
+    item.querySelector('.archiv_links').append(link);
+
+    const thumbnail = 'media/presentations/' + slug + '.jpg';
+    const preview = document.createElement('a');
+    preview.className = 'archiv_preview';
+    preview.href = pdf;
+    preview.target = '_blank';
+    preview.rel = 'noopener';
+    preview.tabIndex = -1;
+    preview.setAttribute('aria-hidden', 'true');
+    preview.innerHTML = '<img alt="" loading="lazy">';
+    preview.firstChild.src = (await fileExists(thumbnail)) ? thumbnail : placeholderSrc;
+    item.querySelector('.archiv_preview').replaceWith(preview);
+}
+
+pastTermine.forEach((termin) => {
+    archivCount++;
+    const date = new Date(termin.dataset.date + 'T00:00:00');
+
+    const item = document.createElement('li');
+    item.className = 'archiv_item';
+    item.id = 'Thema' + archivCount;
+    item.innerHTML =
+        '<div class="archiv_num"></div>' +
+        '<div class="archiv_body">' +
+            '<time class="archiv_date"></time>' +
+            '<h3 class="archiv_topic"></h3>' +
+            '<p class="archiv_question"></p>' +
+            '<p class="archiv_speaker"></p>' +
+            '<div class="archiv_links"></div>' +
+        '</div>' +
+        '<div class="archiv_preview is_placeholder" aria-hidden="true"><img src="' + placeholderSrc + '" alt="" loading="lazy"></div>';
+
+    item.querySelector('.archiv_num').textContent = String(archivCount).padStart(2, '0');
+    const time = item.querySelector('.archiv_date');
+    time.dateTime = termin.dataset.date;
+    time.textContent = date.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
+    item.querySelector('.archiv_topic').textContent = termin.querySelector('.termin_title').textContent;
+    item.querySelector('.archiv_question').textContent = termin.dataset.frage || termin.querySelector('.termin_desc').textContent;
+    const speaker = item.querySelector('.archiv_speaker');
+    if (termin.dataset.speaker) {
+        speaker.textContent = 'von ' + termin.dataset.speaker;
+    } else {
+        speaker.remove();
+    }
+
+    archivList(semesterOf(date)).prepend(item);
+    if (termin.dataset.slug) {
+        addSlides(item, termin.dataset.slug);
+    }
+});
 
 //fade in archive entries once they enter the viewport
 const archivObserver = new IntersectionObserver((entries) => {
@@ -363,3 +474,19 @@ const observer = new IntersectionObserver((entries) => {
 
 const projectPreview = document.querySelectorAll('.projectPreviewHidden');
 projectPreview.forEach((element) => observer.observe(element));
+//fill both "Themen" menus from the archive entries (oldest first); data-menu overrides the label
+document.querySelectorAll('.archiv_item[id]').forEach((item) => {
+    const label = item.dataset.menu || item.querySelector('.archiv_topic').textContent.trim();
+
+    const navLink = document.createElement('a');
+    navLink.href = '#' + item.id;
+    navLink.innerHTML = '<div></div>';
+    navLink.firstChild.textContent = label;
+    projektliste.prepend(navLink);
+
+    const socialsLink = document.createElement('a');
+    socialsLink.href = '#' + item.id;
+    socialsLink.innerHTML = '<div class="socials_div"></div>';
+    socialsLink.firstChild.textContent = label;
+    document.querySelector('.socials_projektliste_inner').prepend(socialsLink);
+});

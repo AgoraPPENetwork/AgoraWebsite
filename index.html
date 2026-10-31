@@ -37,26 +37,17 @@
             <a href="#bottom"><div class="socials_div">Kontakt</div></a>
             <div id="socials_projektliste_ausklappen" class="socials_div" role="button" aria-expanded="false">Themen<span class="chevron socials_projektliste_ausklappen" aria-hidden="true"></span></div>
             <div id="socials_projektliste" class="socials_projektliste">
-                <div class="socials_projektliste_inner">
-                    <a href="#Thema1"><div class="socials_div">Aktienrente</div></a>
-                    <a href="#Thema2"><div class="socials_div">Deutsche Bahn</div></a>
-                    <a href="#Thema3"><div class="socials_div">Gesundheitssystem</div></a>
-                    <a href="#Thema4"><div class="socials_div">Rentensystem</div></a>
-                    <a href="#Thema5"><div class="socials_div">Wohnungskrise</div></a>
-                </div>
+                <!-- wird von js/script.js aus den Archiv-Einträgen befüllt -->
+                <div class="socials_projektliste_inner"></div>
             </div>
         </div> 
         <a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ=="><div class="socials_div"><img class="socials4" src="media/instagram_white.png"> <div style="margin-left: 10px;">instagram</div></div></a>
         <a href="https://www.linkedin.com/company/agora-ppe-network/"><div class="socials_div"> <img class="socials4" src="media/linkedin_white.png"><div style="margin-left: 10px;">linkedin</div></div></a>
         <a href="https://discord.com/invite/gseMFZhj"><div class="socials_div"> <img class="socials4" src="media/discord_white.png"> <div style="margin-left: 10px;">discord</div></div></a>
+        <a href="https://chat.whatsapp.com/KfSb04KgHB6EKp1342kR94?mode=gi_t"><div class="socials_div"> <img class="socials4" src="media/whatsapp_white.png"> <div style="margin-left: 10px;">whatsapp</div></div></a>
     </div>
-    <div class="projektliste">
-        <a href="#Thema1"><div>Aktienrente</div></a>
-        <a href="#Thema2"><div>Deutsche Bahn</div></a>
-        <a href="#Thema3"><div>Gesundheitssystem</div></a>
-        <a href="#Thema4"><div>Rentensystem</div></a>
-        <a href="#Thema5"><div>Wohnungskrise</div></a>
-    </div>
+    <!-- wird von js/script.js aus den Archiv-Einträgen befüllt -->
+    <div class="projektliste"></div>
 
     <div class="Rahmen">
         <div id="schriftzug" class="schriftzug">
@@ -243,7 +234,7 @@
                     </div>
                 </div>
                 <figure class="text-block_media">
-                    <img src="media/ZusammenhangStudium.jpg" alt="" loading="lazy">
+                    <img src="media/ZusammenhangMitStudium.jpeg" alt="" loading="lazy">
                 </figure>
             </article>
         </div>
@@ -263,7 +254,8 @@
                 <span id="va_today"></span>
             </div>
             <ol class="termine">
-                <li class="termin" data-date="2026-11-10">
+
+                <li class="termin" data-date="2026-11-10" data-slug="vergesellschaftung" data-frage="Ist die Vergesellschaftung von Wohnungskonzernen eine sinnvolle Lösung?">
                     <time class="termin_date" datetime="2026-11-10T19:00">
                         <span class="termin_day">10</span>
                         <span class="termin_month">Nov</span>
@@ -286,7 +278,7 @@
                     </div>
                 </li>
 
-                <li class="termin" data-date="2026-11-17">
+                <li class="termin" data-date="2026-11-17" data-slug="after-the-midterms" data-frage="Was bedeuten die Ergebnisse der US-Midterms?">
                     <time class="termin_date" datetime="2026-11-17T19:00">
                         <span class="termin_day">17</span>
                         <span class="termin_month">Nov</span>
@@ -311,7 +303,7 @@
                     </div>
                 </li>
 
-                <li class="termin" data-date="2026-11-24">
+                <li class="termin" data-date="2026-11-24" data-slug="grundsicherungsgeld" data-frage="Ist das Grundsicherungsgeld sinnvolle Arbeitsmarktpolitik oder Populismus?">
                     <time class="termin_date" datetime="2026-11-24T19:00">
                         <span class="termin_day">24</span>
                         <span class="termin_month">Nov</span>
@@ -349,7 +341,7 @@
             <div class="va_label va_label_split">
                 <span>Archiv · Wintersemester 2026/27</span>
             </div>
-            <ol class="archiv">
+            <ol class="archiv" data-semester="Wintersemester 2026/27">
 
                 <li class="archiv_item" id="Thema6">
                     <div class="archiv_num">06</div>
@@ -374,9 +366,9 @@
             <div class="va_label va_label_split">
                 <span>Archiv · Sommersemester 2026</span>
             </div>
-            <ol class="archiv">
+            <ol class="archiv" data-semester="Sommersemester 2026">
 
-                <li class="archiv_item" id="Thema5">
+                <li class="archiv_item" id="Thema5" data-menu="Wohnungskrise">
                     <div class="archiv_num">05</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-06-14">14. Juni 2026</time>
@@ -395,7 +387,7 @@
                     </a>
                 </li>
                 
-                                <li class="archiv_item" id="Thema4">
+                                <li class="archiv_item" id="Thema4" data-menu="Rentensystem">
                     <div class="archiv_num">04</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-06-07">7. Juni 2026</time>
@@ -460,7 +452,7 @@
                     </a>
                 </li>
 
-                <li class="archiv_item" id="Thema1">
+                <li class="archiv_item" id="Thema1" data-menu="Aktienrente">
                     <div class="archiv_num">01</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-04-19">19. April 2026</time>
@@ -503,6 +495,19 @@
                     <a href="https://www.linkedin.com/company/agora-ppe-network/" aria-label="LinkedIn"><img class="socials3" src="media/linkedin.png" alt=""></a>
                     <a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ==" aria-label="Instagram"><img class="socials3" src="media/instagram.png" alt=""></a>
                     <a href="https://discord.com/invite/gseMFZhj" aria-label="Discord"><img class="socials3" src="media/discord.png" alt=""></a>
+                    <a href="https://chat.whatsapp.com/KfSb04KgHB6EKp1342kR94?mode=gi_t" aria-label="WhatsApp"><img class="socials3" src="media/whatsapp.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cta cta_whatsapp">
+        <div class="inner_container">
+            <a class="whatsapp_link" href="https://chat.whatsapp.com/KfSb04KgHB6EKp1342kR94?mode=gi_t" target="_blank" rel="noopener" aria-label="WhatsApp-Gruppe beitreten">
+                <img class="profile" src="media/PublicWhatsAppChannel.jpg" alt="WhatsApp-Gruppe Agora - PPE Network - Interessierte" loading="lazy">
+            </a>
+            <div class="intro">
+                <div class="social_media">
+                    Tritt unserer WhatsApp Gruppe bei um Fragen zu stellen und immer über die nächsten Veranstaltungen informiert zu werden.
                 </div>
             </div>
         </div>
@@ -539,6 +544,7 @@
                     <div style="margin:10px;"><a href="https://www.linkedin.com/company/agora-ppe-network/"><img class="socials4" src="media/linkedin_white.png"></a> </div>
                     <div style="margin:10px;"><a href="https://www.instagram.com/agora_ppe.network?igsh=MThib2I2ZGw5YTFoZQ=="><img class="socials4" src="media/instagram_white.png"></a> </div>
                     <div style="margin:10px;"><a href="https://discord.com/invite/gseMFZhj"><img class="socials4" src="media/discord_white.png"></a> </div>
+                    <div style="margin:10px;"><a href="https://chat.whatsapp.com/KfSb04KgHB6EKp1342kR94?mode=gi_t"><img class="socials4" src="media/whatsapp_white.png"></a> </div>
                 </div>
             </div>
             <div style="margin: 10px 0 40px; font-size: 18px; text-align: center;">
