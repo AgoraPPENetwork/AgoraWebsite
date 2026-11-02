@@ -2041,3 +2041,12 @@ header{
     font-weight: normal;
     font-style: normal;
 }
+/* Archiv einklappen */
+.is-collapsed {
+    display: none !important;
+}
+.archiv_toggle {
+    display: block;
+    margin: 24px auto 0;
+    cursor: pointer;
+}

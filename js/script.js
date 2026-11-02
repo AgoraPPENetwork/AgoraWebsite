@@ -490,3 +490,62 @@ document.querySelectorAll('.archiv_item[id]').forEach((item) => {
     socialsLink.firstChild.textContent = label;
     document.querySelector('.socials_projektliste_inner').prepend(socialsLink);
 });
+
+// Archiv: nur die neuesten 3 Themen zeigen, Rest ausklappbar
+(function () {
+  const SICHTBAR = 3;
+  const bereich = document.querySelector('.va_archiv .va_inner');
+  if (!bereich) return;
+
+  const eintraege = [...bereich.querySelectorAll('.archiv_item')];
+  if (eintraege.length <= SICHTBAR) return;
+
+  const versteckt = eintraege.slice(SICHTBAR);
+  const listen = [...bereich.querySelectorAll('ol.archiv')];
+
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'termin_button archiv_toggle';
+  bereich.appendChild(button);
+
+  let offen = false;
+
+  function anzeigen(auf) {
+    offen = auf;
+    versteckt.forEach(li => li.classList.toggle('is-collapsed', !auf));
+
+    // Semester-Listen samt Überschrift ausblenden, wenn alle ihre Einträge eingeklappt sind
+    listen.forEach(ol => {
+      const leer = [...ol.querySelectorAll('.archiv_item')]
+        .every(li => li.classList.contains('is-collapsed'));
+      ol.classList.toggle('is-collapsed', leer);
+      const label = ol.previousElementSibling;
+      if (label && label.classList.contains('va_label')) {
+        label.classList.toggle('is-collapsed', leer);
+      }
+    });
+
+    button.textContent = auf
+      ? 'Weniger anzeigen'
+      : 'Alle vergangenen Themen anzeigen (' + versteckt.length + ' weitere)';
+    button.setAttribute('aria-expanded', String(auf));
+  }
+
+  button.addEventListener('click', () => {
+    anzeigen(!offen);
+    if (!offen) bereich.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Menü-Links wie #Thema1: Archiv automatisch aufklappen
+  function pruefeSprungziel() {
+    const ziel = location.hash && document.querySelector(location.hash);
+    if (ziel && versteckt.includes(ziel) && !offen) {
+      anzeigen(true);
+      ziel.scrollIntoView();
+    }
+  }
+
+  anzeigen(false);
+  window.addEventListener('hashchange', pruefeSprungziel);
+  pruefeSprungziel();
+})();
