@@ -2053,6 +2053,7 @@ header{
     white-space: normal;
     text-align: center;
     cursor: pointer;
+    overflow-anchor: none;
 }
 
 @media (max-width: 600px) {

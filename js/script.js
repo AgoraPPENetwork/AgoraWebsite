@@ -533,7 +533,7 @@ document.querySelectorAll('.archiv_item[id]').forEach((item) => {
 
   button.addEventListener('click', () => {
     anzeigen(!offen);
-    if (!offen) bereich.scrollIntoView({ behavior: 'smooth' });
+    if (!offen) button.scrollIntoView({ block: 'nearest' });
   });
 
   // Menü-Links wie #Thema1: Archiv automatisch aufklappen
