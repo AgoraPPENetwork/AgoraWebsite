@@ -532,10 +532,14 @@ document.querySelectorAll('.archiv_item[id]').forEach((item) => {
   }
 
   button.addEventListener('click', () => {
+    const vorher = button.getBoundingClientRect().top;
     anzeigen(!offen);
-    if (!offen) button.scrollIntoView({ block: 'nearest' });
+    if (!offen) {
+      // Button beim Einklappen an derselben Bildschirmposition halten
+      const nachher = button.getBoundingClientRect().top;
+      window.scrollBy({ top: nachher - vorher, behavior: 'instant' });
+    }
   });
-
   // Menü-Links wie #Thema1: Archiv automatisch aufklappen
   function pruefeSprungziel() {
     const ziel = location.hash && document.querySelector(location.hash);
