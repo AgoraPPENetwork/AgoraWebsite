@@ -2047,6 +2047,19 @@ header{
 }
 .archiv_toggle {
     display: block;
+    max-width: 100%;
+    box-sizing: border-box;
     margin: 24px auto 0;
+    white-space: normal;
+    text-align: center;
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .archiv_toggle {
+        width: 100%;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        padding: 12px 16px;
+    }
 }

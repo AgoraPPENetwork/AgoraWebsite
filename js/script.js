@@ -527,8 +527,8 @@ document.querySelectorAll('.archiv_item[id]').forEach((item) => {
 
     button.textContent = auf
       ? 'Weniger anzeigen'
-      : 'Alle vergangenen Themen anzeigen (' + versteckt.length + ' weitere)';
-    button.setAttribute('aria-expanded', String(auf));
+      : 'Ältere Themen anzeigen (' + versteckt.length + ')';
+          button.setAttribute('aria-expanded', String(auf));
   }
 
   button.addEventListener('click', () => {
