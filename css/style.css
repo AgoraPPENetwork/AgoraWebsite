@@ -2054,6 +2054,7 @@ header{
     text-align: center;
     cursor: pointer;
     overflow-anchor: none;
+    --va-accent: #5E2028;
 }
 
 @media (max-width: 600px) {
