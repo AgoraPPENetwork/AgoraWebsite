@@ -2042,3 +2042,52 @@ header{
     font-weight: normal;
     font-style: normal;
 }
+/* Archiv einklappen */
+.is-collapsed {
+    display: none !important;
+}
+.archiv_toggle {
+    display: block;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 24px auto 0;
+    white-space: normal;
+    text-align: center;
+    cursor: pointer;
+    overflow-anchor: none;
+    --va-accent: #5E2028;
+}
+
+@media (max-width: 600px) {
+    .archiv_toggle {
+        width: 100%;
+        font-size: 13px;
+        letter-spacing: 0.08em;
+        padding: 12px 16px;
+    }
+}
+
+/* Archiv-Button: Hover wie beim Mitgliederantrag, nur mit Maus */
+@media (hover: hover) {
+    .archiv_toggle {
+        transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease-in-out;
+    }
+
+    .archiv_toggle:hover,
+    .archiv_toggle:focus-visible {
+        background: #962b38;
+        border-color: var(--ultra-white);
+        color: #FFFFFF;
+        transform: scale(1.01);
+    }
+}
+
+/* Touch-Geräte: kein Hover-Zustand, Button bleibt gefüllt */
+@media (hover: none) {
+    .archiv_toggle:hover,
+    .archiv_toggle:focus-visible {
+        background: var(--va-accent);
+        border-color: var(--va-accent);
+        color: #FFFFFF;
+    }
+}
