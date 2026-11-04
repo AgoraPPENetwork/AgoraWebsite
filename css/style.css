@@ -1038,6 +1038,7 @@ header{
     width: var(--download_button_width);
     height: var(--download_button_height);
     background-color: #5E2028;
+    border-radius: 9999px;
     display: flex;
     flex-direction: row;
     justify-content: center;
