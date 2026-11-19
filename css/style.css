@@ -1409,6 +1409,54 @@ header{
     margin: 0;
 }
 
+/* längere Beschreibungen: erster Absatz sichtbar, Rest in <details class="termin_more"> ausklappbar */
+.termin_desc + .termin_desc{
+    margin-top: 10px;
+}
+
+.termin_more summary{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+    font-family: var(--va-mono);
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--va-accent);
+    cursor: pointer;
+    list-style: none;
+}
+
+.termin_more summary::-webkit-details-marker{
+    display: none;
+}
+
+/* kleiner Pfeil, dreht sich beim Aufklappen */
+.termin_more summary::after{
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: translateY(-2px) rotate(45deg);
+    transition: transform 0.2s ease;
+}
+
+.termin_more[open] summary::after{
+    transform: translateY(1px) rotate(-135deg);
+}
+
+.termin_more summary:hover,
+.termin_more summary:focus-visible{
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.termin_more .termin_desc{
+    margin-top: 10px;
+}
+
 .termin_meta{
     display: flex;
     flex-direction: column;
@@ -1667,7 +1715,8 @@ header{
 }
 
 /* Platzhalter, solange noch keine Folien hochgeladen sind: kein Link, kein Hover */
-.archiv_preview.is_placeholder:hover{
+.archiv_preview.is_placeholder:hover,
+.archiv_preview.is_image_only:hover{
     border-color: var(--va-line);
     transform: none;
 }

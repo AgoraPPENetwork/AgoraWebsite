@@ -372,8 +372,16 @@ function fileExists(url) {
 
 async function addSlides(item, slug) {
     const pdf = 'media/presentations/' + slug + '.pdf';
+    const thumbnail = 'media/presentations/' + slug + '.jpg';
     const pdfResponse = await fileExists(pdf);
     if (!pdfResponse) {
+        //no slides (yet): a <slug>.jpg alone still replaces the placeholder image, without a link
+        if (await fileExists(thumbnail)) {
+            const placeholder = item.querySelector('.archiv_preview');
+            placeholder.querySelector('img').src = thumbnail;
+            placeholder.classList.remove('is_placeholder');
+            placeholder.classList.add('is_image_only');
+        }
         return;
     }
 
@@ -387,7 +395,6 @@ async function addSlides(item, slug) {
         + (size ? ' · ' + (size / 1048576).toFixed(1).replace('.', ',') + ' MB' : '') + '</span>';
     item.querySelector('.archiv_links').append(link);
 
-    const thumbnail = 'media/presentations/' + slug + '.jpg';
     const preview = document.createElement('a');
     preview.className = 'archiv_preview';
     preview.href = pdf;
