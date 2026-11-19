@@ -255,7 +255,7 @@
             </div>
             <ol class="termine">
 
-                <li class="termin" data-date="2026-11-10" data-slug="vergesellschaftung" data-speaker="Emre Gülcem" data-frage="Ist die Vergesellschaftung von Wohnungskonzernen eine sinnvolle Lösung?">
+                <li class="termin" data-date="2026-11-10" data-art="diskussionsabend" data-slug="vergesellschaftung" data-speaker="Emre Gülcem" data-frage="Ist die Vergesellschaftung von Wohnungskonzernen eine sinnvolle Lösung?">
                     <time class="termin_date" datetime="2026-11-10T19:00">
                         <span class="termin_day">10</span>
                         <span class="termin_month">Nov</span>
@@ -278,7 +278,7 @@
                     </div>
                 </li>
 
-                <li class="termin" data-date="2026-11-17" data-slug="after-the-midterms" data-frage="Was bedeuten die Ergebnisse der US-Midterms?">
+                <li class="termin" data-date="2026-11-17" data-art="gastvortrag" data-slug="after-the-midterms" data-frage="Was bedeuten die Ergebnisse der US-Midterms?">
                     <time class="termin_date" datetime="2026-11-17T19:00">
                         <span class="termin_day">17</span>
                         <span class="termin_month">Nov</span>
@@ -301,7 +301,7 @@
                     </div>
                 </li>
 
-                <li class="termin" data-date="2026-11-26" data-slug="bargeld" data-frage="Wäre eine Welt ohne Bargeld ein Fortschritt?">
+                <li class="termin" data-date="2026-11-26" data-art="diskussionsabend" data-slug="bargeld" data-frage="Wäre eine Welt ohne Bargeld ein Fortschritt?">
                     <time class="termin_date" datetime="2026-11-24T19:00">
                         <span class="termin_day">26</span>
                         <span class="termin_month">Nov</span>
@@ -325,7 +325,7 @@
                 </li>
 
 
-                <li class="termin" data-date="2026-12-01" data-slug="grundsicherungsgeld" data-frage="Ist das Grundsicherungsgeld sinnvolle Arbeitsmarktpolitik oder Populismus?">
+                <li class="termin" data-date="2026-12-01" data-art="diskussionsabend" data-slug="grundsicherungsgeld" data-frage="Ist das Grundsicherungsgeld sinnvolle Arbeitsmarktpolitik oder Populismus?">
                     <time class="termin_date" datetime="2026-12-01T19:00">
                         <span class="termin_day">01</span>
                         <span class="termin_month">Dez</span>
@@ -346,6 +346,30 @@
                         </a>
                     </div>
                 </li>
+
+
+                
+                <li class="termin" data-date="2026-12-08" data-art="gastvortrag" data-slug="postGrowth" data-frage="Brauchen wir Wirtschaftswachstum überhaupt für Wohlstand und wie lange lässt es sich noch aufrechterhalten?">
+                    <time class="termin_date" datetime="2026-12-08T19:00">
+                        <span class="termin_day">08</span>
+                        <span class="termin_month">Dez</span>
+                    </time>
+                    <div class="termin_body">
+                        <span class="termin_type">Gastvortrag</span>
+                        <h3 class="termin_title">Post-Growth – Wohlstand ohne Wirtschaftswachstum?</h3>
+                        <p class="termin_desc">Brauchen wir Wirtschaftswachstum überhaupt für Wohlstand und wie lange lässt es sich noch aufrechterhalten? Gemeinsam mit der Referentin Vivian Grudde fragen wir, ob Wachstum mit Klima- und Umweltschutz vereinbar ist oder ob es Zeit für eine Wirtschaft nach dem Wachstum ist.</p>
+                    </div>
+                    <div class="termin_meta">
+                        <span>Di · 19:00 Uhr</span>
+                        <span>Campus Westend</span>
+                        <span class="termin_countdown"></span>
+                    </div>
+                    <div class="termin_action">
+                        <a class="termin_button termin_button_icon" href="kalender/postgrowth.ics" aria-label="Zum Kalender hinzufügen" title="Zum Kalender hinzufügen">
+                            <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M3.5 10h17M8 3v4M16 3v4M12 12.5v5M9.5 15h5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+                        </a>
+                    </div>
+                </li>
             </ol>
             <p class="va_next_text termine_empty" hidden>
                 Gerade stehen keine Termine an.
@@ -354,7 +378,8 @@
         </div>
 
         <div class="va_archiv">
-        <div class="va_inner">
+        <!-- Einträge mit data-art="gastvortrag" sortiert js/script.js ins Archiv Gastvorträge, alle anderen hierher -->
+        <div class="va_inner va_inner_normal">
             <h2 class="va_title">Vergangene Themen</h2>
             <p class="va_lead">
                 Hier findet ihr die Themen vergangener Diskussionsabende. Folien und Begleittexte stehen zum Download bereit.
@@ -365,7 +390,7 @@
             </div>
             <ol class="archiv" data-semester="Wintersemester 2026/27">
 
-                <li class="archiv_item" id="Thema6">
+                <li class="archiv_item" data-art="diskussionsabend" id="Thema6">
                     <div class="archiv_num">06</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-10-26">26. Oktober 2026</time>
@@ -390,7 +415,7 @@
             </div>
             <ol class="archiv" data-semester="Sommersemester 2026">
 
-                <li class="archiv_item" id="Thema5" data-menu="Wohnungskrise">
+                <li class="archiv_item" data-art="diskussionsabend" id="Thema5" data-menu="Wohnungskrise">
                     <div class="archiv_num">05</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-06-14">14. Juni 2026</time>
@@ -409,7 +434,7 @@
                     </a>
                 </li>
                 
-                                <li class="archiv_item" id="Thema4" data-menu="Rentensystem">
+                                <li class="archiv_item" data-art="diskussionsabend" id="Thema4" data-menu="Rentensystem">
                     <div class="archiv_num">04</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-06-07">7. Juni 2026</time>
@@ -428,7 +453,7 @@
                     </a>
                 </li>
 
-                <li class="archiv_item" id="Thema3">
+                <li class="archiv_item" data-art="diskussionsabend" id="Thema3">
                     <div class="archiv_num">03</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-05-17">17. Mai 2026</time>
@@ -451,7 +476,7 @@
                     </a>
                 </li>
 
-                <li class="archiv_item" id="Thema2">
+                <li class="archiv_item" data-art="diskussionsabend" id="Thema2">
                     <div class="archiv_num">02</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-05-05">5. Mai 2026</time>
@@ -474,7 +499,7 @@
                     </a>
                 </li>
 
-                <li class="archiv_item" id="Thema1" data-menu="Aktienrente">
+                <li class="archiv_item" data-art="diskussionsabend" id="Thema1" data-menu="Aktienrente">
                     <div class="archiv_num">01</div>
                     <div class="archiv_body">
                         <time class="archiv_date" datetime="2026-04-19">19. April 2026</time>
@@ -498,6 +523,16 @@
                 </li>
 
             </ol>
+        </div>
+        </div>
+
+        <div class="va_gast">
+        <div class="va_inner va_inner_gast">
+            <h2 class="va_title">Gastvorträge</h2>
+            <p class="va_lead">
+                Hier findet ihr vergangene Gastvorträge. 
+            </p>
+            <!-- Semester-Listen werden von js/script.js angelegt -->
         </div>
         </div>
     </section>

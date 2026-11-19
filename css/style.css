@@ -1275,6 +1275,18 @@ header{
     margin: 0 auto;
 }
 
+/* Archiv Gastvorträge: eigenes helles Band in der Farbe der Textblöcke,
+   dunkle Schrift- und Linienfarben erbt es wie die Termine von .veranstaltungen */
+.va_gast{
+    background: #EFEDE8;
+    margin: 0 -24px;
+    padding: 80px 24px 140px;
+}
+
+.va_gast[hidden]{
+    display: none;
+}
+
 .va_title{
     font-family: LEMONMILK, Baskerville, serif;
     font-size: var(--text_header_font_size);
@@ -1711,6 +1723,11 @@ header{
 
     .va_archiv{
         margin: 56px -16px 0;
+        padding: 56px 16px 90px;
+    }
+
+    .va_gast{
+        margin: 0 -16px;
         padding: 56px 16px 90px;
     }
 
