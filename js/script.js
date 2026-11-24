@@ -295,6 +295,23 @@ document.querySelectorAll('.termin').forEach((termin) => {
     const date = new Date(termin.dataset.date + 'T00:00:00');
     const days = Math.round((date - today) / 86400000);
 
+    //optional speaker (data-speaker, plus data-speaker-info for their role) goes between time and place
+    if (termin.dataset.speaker) {
+        const speaker = document.createElement('span');
+        speaker.className = 'termin_speaker';
+        const name = document.createElement('span');
+        name.className = 'termin_speaker_name';
+        name.textContent = termin.dataset.speaker;
+        speaker.append(name);
+        if (termin.dataset.speakerInfo) {
+            const info = document.createElement('span');
+            info.className = 'termin_speaker_info';
+            info.textContent = termin.dataset.speakerInfo;
+            speaker.append(info);
+        }
+        termin.querySelector('.termin_meta').firstElementChild.after(speaker);
+    }
+
     if (days < 0) {
         termin.hidden = true;
         pastTermine.push(termin);
@@ -445,7 +462,8 @@ pastTermine.forEach((termin) => {
     }
     const speaker = item.querySelector('.archiv_speaker');
     if (termin.dataset.speaker) {
-        speaker.textContent = 'von ' + termin.dataset.speaker;
+        speaker.textContent = 'von ' + termin.dataset.speaker
+            + (termin.dataset.speakerInfo ? ', ' + termin.dataset.speakerInfo : '');
     } else {
         speaker.remove();
     }

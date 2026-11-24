@@ -1468,6 +1468,19 @@ header{
     padding-top: 6px;
 }
 
+.termin_speaker{
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.termin_speaker_info{
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    line-height: 1.4;
+    color: var(--va-muted);
+}
+
 .termin_countdown{
     color: var(--va-muted);
 }
