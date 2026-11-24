@@ -436,6 +436,13 @@ pastTermine.forEach((termin) => {
     time.textContent = date.toLocaleDateString('de-DE', { day: 'numeric', month: 'long', year: 'numeric' });
     item.querySelector('.archiv_topic').textContent = termin.querySelector('.termin_title').textContent;
     item.querySelector('.archiv_question').textContent = termin.dataset.frage || termin.querySelector('.termin_desc').textContent;
+    //guest talks keep a description in the archive: data-rueckblick if set, else the announcement text (unless it already serves as the question)
+    if (istGastvortrag(termin) && (termin.dataset.rueckblick || termin.dataset.frage)) {
+        const desc = document.createElement('p');
+        desc.className = 'archiv_desc';
+        desc.textContent = termin.dataset.rueckblick || termin.querySelector('.termin_desc').textContent;
+        item.querySelector('.archiv_question').after(desc);
+    }
     const speaker = item.querySelector('.archiv_speaker');
     if (termin.dataset.speaker) {
         speaker.textContent = 'von ' + termin.dataset.speaker;

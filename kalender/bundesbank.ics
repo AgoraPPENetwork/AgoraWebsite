@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Agora PPE Network//Event Calendar//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:bundesbank-20261218-1500@agora-ppe-network.de
+DTSTAMP:20261124T120000Z
+DTSTART:20261218T140000Z
+DTEND:20261218T160000Z
+SUMMARY:Vortrag Deutsche Bundesbank und Geldmuseum
+LOCATION:Deutsche Bundesbank\, Wilhelm-Epstein-Straße 14\, Frankfurt
+DESCRIPTION:Vortrag „Die Geldpolitik im Eurosystem“\, danach kostenloser B
+ esuch des Geldmuseums auf eigene Faust. Treffpunkt: Infotheke im Eingang
+ sbereich.
+END:VEVENT
+END:VCALENDAR

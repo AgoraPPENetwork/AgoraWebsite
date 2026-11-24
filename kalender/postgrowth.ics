@@ -1,0 +1,17 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Agora PPE Network//Veranstaltungen//DE
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+BEGIN:VEVENT
+UID:postgrowth-20261208-2000@agora-ppe-network.de
+DTSTAMP:20261124T120000Z
+DTSTART:20261208T190000Z
+DTEND:20261208T210000Z
+SUMMARY:Post-Growth – Wohlstand ohne Wirtschaftswachstum?
+LOCATION:Campus Westend
+DESCRIPTION:Gastvortrag bei Agora – PPE Network: Wirtschaften und Wohlstand
+  innerhalb der planetaren Grenzen: Grünes Wachstum\, Postwachstum – oder 
+ eine nicht-nachhaltige Moderne?
+END:VEVENT
+END:VCALENDAR

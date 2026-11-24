@@ -1652,6 +1652,15 @@ header{
     margin: 0;
 }
 
+.archiv_desc{
+    font-family: var(--va-serif);
+    font-size: 18px;
+    line-height: 1.5;
+    color: var(--va-muted);
+    max-width: 60ch;
+    margin: 16px 0 0;
+}
+
 .archiv_speaker{
     font-family: var(--va-serif);
     font-style: italic;
